@@ -170,14 +170,32 @@ assets/         CSS and the shared JavaScript.
 
 ---
 
-## Publishing it
+## Publishing
 
-The site is pure static files, so any host works:
+The site lives at <https://github.com/20cwaters/PrestonMission> and deploys to Netlify
+automatically. **Anything pushed to `main` goes live within a minute or two.** There is no build
+step — `netlify.toml` tells Netlify to serve the repository root as-is.
 
-- **Netlify** — go to app.netlify.com/drop and drag this whole folder onto the page. You get a
-  URL immediately, and you can point a custom domain at it. To update, drag the folder again.
-- **GitHub Pages** — push the folder to a repo and turn on Pages for the main branch.
-- **Anywhere else** — upload the folder by FTP. There is nothing to compile.
+The weekly automation commits and pushes on its own, so a new letter publishes itself. To push a
+change you made by hand:
 
-The map needs an internet connection (it loads OpenStreetMap tiles). Everything else works
-offline, including opening `index.html` straight off the hard drive.
+```bash
+git add -A && git commit -m "What changed" && git push
+```
+
+### Connecting Netlify to the repo
+
+If the Netlify site was created by dragging the folder, it is not yet linked to GitHub and will
+not auto-update. To link it:
+
+1. Open your site in <https://app.netlify.com>.
+2. **Site configuration → Build & deploy → Continuous deployment** → **Link repository**.
+3. Choose GitHub, authorise it, and pick `20cwaters/PrestonMission`.
+4. Branch `main`, build command empty, publish directory `.` — `netlify.toml` already sets these.
+5. Deploy. From then on every push rebuilds the site.
+
+### A note on case
+
+Netlify serves from Linux, which is case-sensitive, unlike Windows. `photo.JPG` and `photo.jpg`
+are different files there. Always name photo files with a lowercase `.jpg`, or they will work on
+your machine and 404 on the live site.

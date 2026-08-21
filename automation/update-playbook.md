@@ -163,7 +163,36 @@ naming the file it's waiting for, so nothing looks broken. List the needed filen
 - Confirm the new letter id is unique and that every id in the letter's `photos` array has a
   matching entry in `photos.js`.
 
-## 8. Report
+## 8. Publish
+
+The site is a git repo wired to Netlify: **anything pushed to `main` deploys automatically**
+within a minute or two. Nothing else is needed to make the update go live.
+
+Only publish if step 7 passed. Then:
+
+```
+git add -A
+git commit -m "Add letter: <title> (<date>)"
+git push origin main
+```
+
+Write the commit body as a short list of what actually changed — the letter, the photos filed,
+and any `data/mission.js` change (new companion, transfer, dates set). End the message with:
+
+```
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+```
+
+Notes:
+- Credentials are cached by Git Credential Manager, so the push should not prompt. If it does
+  fail on authentication, **stop, leave the commit in place**, and say so in the report — Casey
+  can push it by hand. Never try to work around auth.
+- If `git push` is rejected because the remote moved ahead, run `git pull --rebase origin main`
+  and push again. If that conflicts, stop and report rather than forcing anything.
+- Never use `git push --force`.
+- Photos are committed alongside the data files, so the whole update lands in one deploy.
+
+## 9. Report
 
 Write a short summary covering:
 - Which letter was added (title and date), or that there was no new email
@@ -171,5 +200,6 @@ Write a short summary covering:
 - **Any change made to `mission.js`, stated plainly** — new companion, new area, dates set
 - Anything you were unsure about and deliberately left alone, so Casey can decide
 - Which photo files still need saving, if any
+- Whether the push succeeded, so Casey knows the live site is updated
 
 Keep it to a few lines. If nothing needed attention, say so in one sentence.
