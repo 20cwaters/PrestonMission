@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add a Letter — Elder Preston Waters</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="section section--tight">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">Family only</p>
+    <h1>Add this week's letter</h1>
+    <p class="lede">
+      Paste his email below. This page turns it into the two snippets you paste into
+      <code>data/letters.js</code> and <code>data/photos.js</code>. Nothing is saved automatically —
+      you copy, paste, save the files, and the site updates.
+    </p>
+  </div>
+</section>
+
+<section class="wrap wrap-narrow admin-body" style="padding-bottom:80px">
+
+  <div class="admin-step">
+    <h2>Paste the email</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="f-subject">Subject line</label>
+        <input class="input" id="f-subject" placeholder="The Great MTC Plague">
+      </div>
+      <div class="field">
+        <label for="f-date">Date he sent it</label>
+        <input class="input" id="f-date" type="date">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="f-location">Where he was</label>
+        <input class="input" id="f-location" list="loc-list" placeholder="Provo MTC">
+        <datalist id="loc-list"></datalist>
+      </div>
+      <div class="field">
+        <label for="f-week">Week number</label>
+        <input class="input" id="f-week" type="number" min="1">
+      </div>
+    </div>
+    <div class="field">
+      <label for="f-body">Email body — paste the whole thing, captions and album link included</label>
+      <textarea class="textarea" id="f-body" placeholder="Kamusta po! This week was..."></textarea>
+    </div>
+    <p style="margin-top:14px"><button class="btn" id="parse">Read the email &rarr;</button></p>
+  </div>
+
+  <div id="results" style="display:none">
+
+    <div class="admin-step">
+      <h2>Check the paragraphs</h2>
+      <p class="muted" style="font-size:.93rem">
+        Tick the paragraph (or paragraphs) that make up his spiritual thought. Change the dropdown to
+        <em>Scripture</em> for quoted verses, or <em>Skip</em> for anything you do not want on the site.
+      </p>
+      <div id="blocks" style="margin-top:16px"></div>
+      <div class="field" style="margin-top:16px">
+        <label for="f-thought-title">Title for the spiritual thought (optional)</label>
+        <input class="input" id="f-thought-title" placeholder="Put your trust in that Spirit">
+      </div>
+    </div>
+
+    <div class="admin-step">
+      <h2>Photo captions</h2>
+      <p class="muted" style="font-size:.93rem">
+        The lines at the bottom of his email are usually captions, one per attached photo, in order.
+        Fix them up here — each one becomes a photo on the site.
+      </p>
+      <div id="captions" style="margin-top:16px"></div>
+      <p><button class="btn btn--ghost btn--sm" id="add-caption">+ Add a caption</button></p>
+      <div class="note" style="margin-top:16px" id="filenames"></div>
+    </div>
+
+    <div class="admin-step">
+      <h2>Tagalog words</h2>
+      <p class="muted" style="font-size:.93rem">Any word he explained this week. These build the glossary.</p>
+      <div id="words" style="margin-top:16px"></div>
+      <p><button class="btn btn--ghost btn--sm" id="add-word">+ Add a word</button></p>
+    </div>
+
+    <div class="admin-step">
+      <h2>Copy this into <code>data/letters.js</code></h2>
+      <p class="muted" style="font-size:.93rem">
+        Open the file and paste this right after the line <code>window.LETTERS = [</code>.
+      </p>
+      <pre class="code-out" id="out-letter"></pre>
+      <p style="margin-top:14px"><button class="btn" data-copy="out-letter">Copy letter snippet</button></p>
+    </div>
+
+    <div class="admin-step">
+      <h2>Copy this into <code>data/photos.js</code></h2>
+      <p class="muted" style="font-size:.93rem">
+        Paste it right after <code>window.PHOTOS = [</code>, then save his photos into the
+        <code>photos</code> folder using the filenames listed above.
+      </p>
+      <pre class="code-out" id="out-photos"></pre>
+      <p style="margin-top:14px"><button class="btn" data-copy="out-photos">Copy photo snippet</button></p>
+    </div>
+
+    <div class="note">
+      <strong>Did he move areas this week?</strong> Open <code>data/mission.js</code>, give the old
+      area an <code>end</code> date and <code>current: false</code>, then add the new one with
+      <code>current: true</code>. The map, the countdown, and the homepage all follow from that.
+    </div>
+
+  </div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var M = MW.M, st = MW.status();
+  var $ = function (s) { return document.querySelector(s); };
+
+  /* ---------- defaults ---------- */
+  $("#f-date").value = new Date().toISOString().slice(0, 10);
+  $("#f-location").value = st.area ? st.area.name : "";
+  $("#loc-list").innerHTML = M.areas.map(function (a) {
+    return '<option value="' + MW.esc(a.name) + '">';
+  }).join("");
+
+  function recalcWeek() {
+    var v = $("#f-date").value;
+    if (!v) return;
+    var wk = Math.floor(MW.days(MW.d(M.dates.mtcStart), MW.d(v)) / 7) + 1;
+    $("#f-week").value = Math.max(1, wk);
+  }
+  $("#f-date").addEventListener("change", recalcWeek);
+  recalcWeek();
+
+  /* ---------- parsing ---------- */
+  var ALBUM_RE = /https?:\/\/(?:photos\.app\.goo\.gl|photos\.google\.com)\/\S+/i;
+  // He does not always spell the books right, so this stays forgiving.
+  var REF_RE = /((?:[1-4]\s+)?(?:D\s*&\s*C|Doct[a-z]*rine[a-z]*(?:\s+and\s+Covenants)?|Nephi|Alma|Mosiah|Moroni|Mormon|Ether|Helaman|Jacob|Enos|Omni|Moses|Abraham|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Hebrews|James|Peter|Jude|Revelation|Genesis|Exodus|Psalms?|Proverbs|Isaiah|Jeremiah|Ezekiel|Daniel|Malachi)[A-Za-z ]*?\s*\d+\s*:\s*\d+(?:\s*[–-]\s*\d+)?(?:\s*,\s*\d+)*)/i;
+
+  var state = { blocks: [], captions: [], words: [], album: "" };
+
+  function looksLikeScripture(t) {
+    return /^\s*["“]?\d+\s+[A-Z]/.test(t) || (/["“]/.test(t) && /\d+\s/.test(t) && t.length > 90);
+  }
+
+  // "Doctorine and Covenants 11:12-13," -> "Doctrine and Covenants 11:12–13"
+  function tidyRef(s) {
+    return s.trim()
+      .replace(/,$/, "")
+      .replace(/\s*-\s*/g, "–")
+      .replace(/^d\s*&\s*c\b/i, "Doctrine and Covenants")
+      .replace(/^doct[a-z]*rine[a-z]*(\s+and\s+covenants)?/i, "Doctrine and Covenants")
+      .replace(/\s+/g, " ");
+  }
+
+  // Strip the quote marks he wraps around pasted verses.
+  function unquote(s) {
+    return s.replace(/^\s*["“”']+/, "").replace(/["“”']+\s*$/, "").trim();
+  }
+
+  function parse() {
+    var raw = $("#f-body").value.replace(/\r/g, "");
+    var album = (raw.match(ALBUM_RE) || [""])[0];
+    state.album = album || M.links.googlePhotos;
+
+    // Everything after the album link is treated as captions.
+    var tail = "", main = raw;
+    if (album) {
+      var i = raw.indexOf(album);
+      main = raw.slice(0, i);
+      tail = raw.slice(i + album.length);
+      // Drop a lead-in line like "Google photos album:" from the main part
+      main = main.replace(/\n[^\n]{0,60}(google\s*photos|album)[^\n]{0,20}:?\s*$/i, "\n");
+    }
+
+    var blocks = main.split(/\n\s*\n/)
+      .map(function (b) { return b.replace(/\n+/g, " ").trim(); })
+      .filter(function (b) { return b.length > 0; });
+
+    state.blocks = blocks.map(function (text) {
+      return { text: text, type: looksLikeScripture(text) ? "scripture" : "p", thought: false, ref: "" };
+    });
+
+    // Guess a scripture reference from the paragraph before each scripture block.
+    state.blocks.forEach(function (b, i) {
+      if (b.type !== "scripture") return;
+      b.text = unquote(b.text);
+      var m = b.text.match(REF_RE) || (i > 0 ? state.blocks[i - 1].text.match(REF_RE) : null);
+      if (m) b.ref = tidyRef(m[1]);
+      if (i > 0 && REF_RE.test(state.blocks[i - 1].text)) state.blocks[i - 1].thought = true;
+      b.thought = true;
+    });
+
+    state.captions = tail.split("\n")
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s && s.length < 130 && !/^https?:/i.test(s); });
+
+    // Pull "word (meaning)" pairs out of the text as a starting point.
+    state.words = [];
+    var wm, wre = /\b([a-z]+(?:\s+[a-z]+)?)\s*\(([a-z][a-z\s]{2,24})\)/gi;
+    while ((wm = wre.exec(main)) !== null && state.words.length < 8) {
+      var w = wm[1].trim(), d = wm[2].trim();
+      if (w.length < 3 || /^(the|and|but|for|sometimes|like|about)$/i.test(w)) continue;
+      state.words.push({ word: w.charAt(0).toUpperCase() + w.slice(1), meaning: d.charAt(0).toUpperCase() + d.slice(1) });
+    }
+
+    if (!$("#f-subject").value) {
+      var first = (raw.trim().split("\n")[0] || "").trim();
+      if (first.length < 70) $("#f-subject").value = first;
+    }
+
+    renderAll();
+    $("#results").style.display = "block";
+    $("#results").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* ---------- rendering ---------- */
+
+  function renderBlocks() {
+    $("#blocks").innerHTML = state.blocks.map(function (b, i) {
+      var short = b.text.length > 260 ? b.text.slice(0, 260) + "…" : b.text;
+      return '<div class="para-pick' + (b.thought ? " picked" : "") + '" data-i="' + i + '">' +
+        '<input type="checkbox" data-thought="' + i + '"' + (b.thought ? " checked" : "") + ' aria-label="Spiritual thought">' +
+        '<div style="flex:1">' +
+          '<div>' + MW.esc(short) + '</div>' +
+          '<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">' +
+            '<select class="select" data-type="' + i + '" style="width:auto;padding:5px 10px;font-size:.83rem">' +
+              '<option value="p"' + (b.type === "p" ? " selected" : "") + '>Paragraph</option>' +
+              '<option value="scripture"' + (b.type === "scripture" ? " selected" : "") + '>Scripture</option>' +
+              '<option value="skip"' + (b.type === "skip" ? " selected" : "") + '>Skip</option>' +
+            '</select>' +
+            (b.type === "scripture"
+              ? '<input class="input" data-ref="' + i + '" value="' + MW.esc(b.ref) + '" placeholder="Reference, e.g. Alma 32:21" style="width:auto;flex:1;min-width:180px;padding:5px 10px;font-size:.83rem">'
+              : '') +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }).join("");
+
+    $("#blocks").querySelectorAll("[data-thought]").forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        state.blocks[+cb.dataset.thought].thought = cb.checked;
+        cb.closest(".para-pick").classList.toggle("picked", cb.checked);
+        renderOutput();
+      });
+    });
+    $("#blocks").querySelectorAll("[data-type]").forEach(function (sel) {
+      sel.addEventListener("change", function () {
+        state.blocks[+sel.dataset.type].type = sel.value;
+        renderBlocks(); renderOutput();
+      });
+    });
+    $("#blocks").querySelectorAll("[data-ref]").forEach(function (inp) {
+      inp.addEventListener("input", function () {
+        state.blocks[+inp.dataset.ref].ref = inp.value;
+        renderOutput();
+      });
+    });
+  }
+
+  function renderCaptions() {
+    $("#captions").innerHTML = state.captions.map(function (c, i) {
+      return '<div style="display:flex;gap:10px;margin-bottom:8px;align-items:center">' +
+        '<span class="pill" style="flex:none">' + (i + 1) + '</span>' +
+        '<input class="input" data-cap="' + i + '" value="' + MW.esc(c) + '">' +
+        '<button class="btn btn--ghost btn--sm" data-delcap="' + i + '" style="flex:none">Remove</button>' +
+        '</div>';
+    }).join("") || '<p class="muted" style="font-size:.9rem">No captions found — add them by hand.</p>';
+
+    $("#captions").querySelectorAll("[data-cap]").forEach(function (inp) {
+      inp.addEventListener("input", function () {
+        state.captions[+inp.dataset.cap] = inp.value;
+        renderFilenames(); renderOutput();
+      });
+    });
+    $("#captions").querySelectorAll("[data-delcap]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.captions.splice(+btn.dataset.delcap, 1);
+        renderCaptions(); renderFilenames(); renderOutput();
+      });
+    });
+    renderFilenames();
+  }
+
+  function renderFilenames() {
+    var date = $("#f-date").value || "undated";
+    $("#filenames").innerHTML = state.captions.length
+      ? '<strong>Save his photos into the <code>photos</code> folder with these exact names:</strong><br>' +
+        state.captions.map(function (c, i) {
+          return '<code>' + date + '-' + (i + 1) + '.jpg</code> &nbsp;&mdash;&nbsp; ' + MW.esc(c);
+        }).join("<br>")
+      : '<strong>No photos this week?</strong> That is fine — skip this step.';
+  }
+
+  function renderWords() {
+    $("#words").innerHTML = state.words.map(function (w, i) {
+      return '<div style="display:flex;gap:10px;margin-bottom:8px">' +
+        '<input class="input" data-word="' + i + '" value="' + MW.esc(w.word) + '" placeholder="Tagalog" style="flex:1">' +
+        '<input class="input" data-mean="' + i + '" value="' + MW.esc(w.meaning) + '" placeholder="What it means" style="flex:1.4">' +
+        '<button class="btn btn--ghost btn--sm" data-delword="' + i + '" style="flex:none">Remove</button>' +
+        '</div>';
+    }).join("") || '<p class="muted" style="font-size:.9rem">None yet.</p>';
+
+    $("#words").querySelectorAll("[data-word]").forEach(function (inp) {
+      inp.addEventListener("input", function () { state.words[+inp.dataset.word].word = inp.value; renderOutput(); });
+    });
+    $("#words").querySelectorAll("[data-mean]").forEach(function (inp) {
+      inp.addEventListener("input", function () { state.words[+inp.dataset.mean].meaning = inp.value; renderOutput(); });
+    });
+    $("#words").querySelectorAll("[data-delword]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.words.splice(+btn.dataset.delword, 1);
+        renderWords(); renderOutput();
+      });
+    });
+  }
+
+  /* ---------- output ---------- */
+
+  function slug(s) {
+    return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 50);
+  }
+  function q(s) { return JSON.stringify(s == null ? "" : String(s)); }
+
+  function renderOutput() {
+    var date = $("#f-date").value || "";
+    var title = $("#f-subject").value || "Untitled";
+    var id = date + "-" + slug(title);
+
+    // Consecutive scripture blocks belong in one quote, not two stacked ones.
+    var kept = [];
+    state.blocks.forEach(function (b) {
+      if (b.type === "skip") return;
+      var prev = kept[kept.length - 1];
+      if (b.type === "scripture" && prev && prev.type === "scripture") {
+        prev.text += "\n\n" + b.text;
+        prev.ref = prev.ref || b.ref;
+        prev.thought = prev.thought || b.thought;
+        return;
+      }
+      kept.push({ type: b.type, text: b.text, ref: b.ref, thought: b.thought });
+    });
+
+    var body = kept.map(function (b) {
+      return b.type === "scripture"
+        ? '      { type: "scripture", ref: ' + q(b.ref) + ', text: ' + q(b.text) + ' }'
+        : '      { type: "p", text: ' + q(b.text) + ' }';
+    }).join(",\n");
+
+    var picked = kept.filter(function (b) { return b.thought; });
+    // A lead-in sentence becomes the intro; the verses themselves become the quote.
+    var intro = "";
+    if (picked.length > 1 && picked[0].type === "p" &&
+        picked.some(function (b) { return b.type === "scripture"; })) {
+      intro = picked[0].text;
+      picked = picked.slice(1);
+    }
+    var thoughtText = picked.map(function (b) { return b.text; }).join(" ").replace(/\s+/g, " ").trim();
+    var thoughtRef = (kept.filter(function (b) { return b.thought && b.ref; })[0] || {}).ref || "";
+
+    var photoIds = state.captions.map(function (c, i) { return date + "-" + (i + 1); });
+
+    var letter =
+      "  {\n" +
+      "    id: " + q(id) + ",\n" +
+      "    title: " + q(title) + ",\n" +
+      "    date: " + q(date) + ",\n" +
+      "    location: " + q($("#f-location").value) + ",\n" +
+      "    week: " + (parseInt($("#f-week").value, 10) || 1) + ",\n" +
+      "    albumUrl: " + q(state.album) + ",\n" +
+      "    body: [\n" + body + "\n    ],\n" +
+      "    spiritualThought: {\n" +
+      "      title: " + q($("#f-thought-title").value) + ",\n" +
+      "      intro: " + q(intro) + ",\n" +
+      "      scriptureRef: " + q(thoughtRef) + ",\n" +
+      "      scripture: " + q(thoughtText) + "\n" +
+      "    },\n" +
+      (function () {
+        var ws = state.words.filter(function (w) { return w.word; });
+        if (!ws.length) return "    tagalog: [],\n";
+        return "    tagalog: [\n" + ws.map(function (w) {
+          return "      { word: " + q(w.word) + ", meaning: " + q(w.meaning) + " }";
+        }).join(",\n") + "\n    ],\n";
+      })() +
+      "    photos: [" + photoIds.map(q).join(", ") + "]\n" +
+      "  },\n";
+
+    var photos = state.captions.map(function (c, i) {
+      var pid = date + "-" + (i + 1);
+      return "  { id: " + q(pid) + ", src: " + q("photos/" + pid + ".jpg") + ", date: " + q(date) + ",\n" +
+             "    caption: " + q(c) + ", location: " + q($("#f-location").value) + ",\n" +
+             "    letterId: " + q(id) + " },\n";
+    }).join("\n");
+
+    $("#out-letter").textContent = letter;
+    $("#out-photos").textContent = photos || "  // no photos this week";
+  }
+
+  function renderAll() { renderBlocks(); renderCaptions(); renderWords(); renderOutput(); }
+
+  /* ---------- wiring ---------- */
+
+  $("#parse").addEventListener("click", parse);
+  ["f-subject", "f-date", "f-location", "f-week", "f-thought-title"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      if ($("#results").style.display !== "none") { renderFilenames(); renderOutput(); }
+    });
+  });
+  $("#add-caption").addEventListener("click", function () {
+    state.captions.push(""); renderCaptions(); renderOutput();
+  });
+  $("#add-word").addEventListener("click", function () {
+    state.words.push({ word: "", meaning: "" }); renderWords(); renderOutput();
+  });
+
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var text = document.getElementById(btn.dataset.copy).textContent;
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = old; }, 1400);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { alert("Select the text and copy it manually."); }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

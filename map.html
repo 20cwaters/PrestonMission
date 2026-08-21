@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where He Is — Elder Preston Waters</title>
+<meta name="description" content="A satellite map and street view of every area Elder Preston Waters has served in, plus his transfer timeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">Transfers happen every six weeks</p>
+    <h1>Where he is</h1>
+    <p class="lede" style="max-width:64ch" data-intro></p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="area-tabs" data-area-tabs></div>
+
+  <div class="map-shell">
+    <div class="map-pane">
+      <div class="map-pane__label">Satellite</div>
+      <div id="map"></div>
+    </div>
+    <div class="map-pane">
+      <div class="map-pane__label">Street view</div>
+      <div id="pano"></div>
+      <div class="pano-note" data-pano-note hidden></div>
+    </div>
+  </div>
+
+  <p class="map-hint muted">
+    Drag the little orange person onto any road to walk around. Use the buttons above to jump
+    between the places he has served.
+  </p>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:start">
+      <div>
+        <h2>Current assignment</h2>
+        <div class="card" data-current></div>
+      </div>
+      <div>
+        <h2>Transfer timeline</h2>
+        <div class="timeline" data-timeline></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">Some context</p>
+    <h2>About the mission</h2>
+    <p>
+      The <strong data-mission-name></strong> covers the far north of Luzon — the Cagayan Valley,
+      Isabela, Nueva Vizcaya, the Cordillera highlands and out to the Batanes islands. It is rice
+      country and river country, hemmed in by mountains on both sides, and Tuguegarao City itself has
+      a reputation for being one of the hottest places in the Philippines.
+    </p>
+    <p>
+      Missionaries there speak <strong data-language></strong> along with the local languages —
+      Ilocano and Ibanag are widely spoken in the valley. Every six weeks, at what is called a
+      transfer, missionaries may be moved to a new area and assigned a new companion. When that
+      happens, this page changes.
+    </p>
+  </div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var M = MW.M, st = MW.status(), esc = MW.esc, areas = M.areas;
+  var cfg = M.maps || {};
+
+  document.querySelector("[data-mission-name]").textContent = M.mission.name;
+  document.querySelector("[data-language]").textContent = M.mission.language;
+  document.querySelector("[data-intro]").textContent =
+    areas.length > 1
+      ? "He has served in " + areas.length + " areas so far. The map opens on wherever he is right now — drop into street view to see what it actually looks like."
+      : "He is just getting started — right now he is at the " + (st.area ? st.area.name : "MTC") +
+        ". The map opens right on top of it, and you can drop into street view to look around.";
+
+  /* ---------------- current assignment card ---------------- */
+  var a = st.area, lines = [];
+  if (a) {
+    lines.push('<h3 style="font-size:1.5rem">' + esc(a.name) + '</h3>');
+    lines.push('<p class="muted" style="margin-bottom:1.2em">' + esc(a.region) + '</p>');
+    lines.push('<p style="font-size:.95rem">' +
+      '<strong>Arrived:</strong> ' + MW.fmtDate(a.start) + '<br>' +
+      '<strong>Companion:</strong> ' + esc(a.companion || "to be announced") + '<br>' +
+      '<strong>Time here:</strong> ' + MW.plural(Math.max(0, MW.days(MW.d(a.start), MW.today())), "day") +
+      '</p>');
+    if (a.note) lines.push('<p style="color:var(--ink-soft);font-size:.95rem">' + esc(a.note) + '</p>');
+    if (st.inMtc) {
+      lines.push('<p class="pill pill--gold" style="display:inline-block">Week ' + st.mtcWeek + ' at the MTC</p>');
+    } else if (st.transfer) {
+      lines.push('<p class="pill pill--gold" style="display:inline-block">Transfer ' + st.transfer +
+        ', week ' + st.transferWeek + ' of ' + (M.dates.transferLength || 6) + '</p>');
+      if (st.nextTransfer) {
+        lines.push('<p class="muted" style="font-size:.88rem;margin-top:1em">Next transfer day: ' +
+          st.nextTransfer.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) + '</p>');
+      }
+    }
+  } else {
+    lines.push('<p class="muted">No area recorded yet.</p>');
+  }
+  document.querySelector("[data-current]").innerHTML = lines.join("");
+
+  /* ---------------- timeline ---------------- */
+  document.querySelector("[data-timeline]").innerHTML = areas.slice().reverse().map(function (x) {
+    var cls = x.current ? "timeline__item timeline__item--current" : "timeline__item timeline__item--done";
+    return '<div class="' + cls + '">' +
+      '<div class="timeline__date">' + MW.fmtDate(x.start, "short") + ' – ' +
+        (x.end ? MW.fmtDate(x.end, "short") : "now") + '</div>' +
+      '<h3>' + esc(x.name) + '</h3>' +
+      '<p>' + esc(x.region) + (x.companion ? ' &middot; with ' + esc(x.companion) : '') + '</p>' +
+      '</div>';
+  }).join("");
+
+  /* ---------------- map ---------------- */
+  var mapped = areas.filter(function (x) {
+    return typeof x.lat === "number" && typeof x.lng === "number";
+  });
+
+  // No key yet: explain rather than showing a broken grey box.
+  if (!cfg.apiKey) {
+    document.querySelector(".map-shell").innerHTML =
+      '<div class="map-setup">' +
+        '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
+          '<path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>' +
+        '<h3>The map needs a Google Maps key</h3>' +
+        '<p>Open <code>data/mission.js</code>, find the <code>maps</code> section, and paste your ' +
+        'Maps JavaScript API key into <code>apiKey</code>. Step-by-step instructions are in ' +
+        '<strong>README.md</strong> under &ldquo;Setting up the map&rdquo;.</p>' +
+        '<p class="muted" style="font-size:.88rem;margin:0">Everything else on this page works without it.</p>' +
+      '</div>';
+    document.querySelector(".area-tabs").hidden = true;
+    document.querySelector(".map-hint").hidden = true;
+    return;
+  }
+
+  if (!mapped.length) {
+    document.querySelector(".map-shell").innerHTML =
+      '<div class="map-setup"><h3>No coordinates yet</h3>' +
+      '<p>Add <code>lat</code> and <code>lng</code> to an area in <code>data/mission.js</code>.</p></div>';
+    return;
+  }
+
+  /* area switcher */
+  var activeIndex = Math.max(0, mapped.findIndex(function (x) { return x.current; }));
+  document.querySelector("[data-area-tabs]").innerHTML =
+    mapped.map(function (x, i) {
+      return '<button class="area-tab' + (i === activeIndex ? " is-active" : "") + '" data-area="' + i + '">' +
+        esc(x.name) + (x.current ? ' <span class="area-tab__now">now</span>' : '') + '</button>';
+    }).join("") +
+    (mapped.length > 1 ? '<button class="area-tab area-tab--ghost" data-area="all">See all areas</button>' : '');
+
+  /* Google does not reliably call gm_authFailure — for a bad key it often just
+     renders a degraded static image. So we check the map's health directly. */
+  var errorShown = false;
+  function showMapError(title, body) {
+    if (errorShown) return;
+    errorShown = true;
+    document.querySelector(".map-shell").innerHTML =
+      '<div class="map-setup">' +
+        '<h3>' + title + '</h3>' + body +
+      '</div>';
+    var tabs = document.querySelector(".area-tabs");
+    var hint = document.querySelector(".map-hint");
+    if (tabs) tabs.hidden = true;
+    if (hint) hint.hidden = true;
+  }
+
+  function keyProblem() {
+    showMapError("Google is not accepting the map key",
+      '<p>The key in <code>data/mission.js</code> was rejected. In the ' +
+      '<a href="https://console.cloud.google.com/" target="_blank" rel="noopener">Google Cloud console</a>, ' +
+      'check all four, in this order:</p>' +
+      '<p style="text-align:left">' +
+      '<strong>1.</strong> <strong>Billing</strong> is enabled on the project and linked to a card.<br>' +
+      '<strong>2.</strong> The <strong>Maps JavaScript API</strong> is enabled — search for it by name ' +
+      'and confirm it says "Manage", not "Enable".<br>' +
+      '<strong>3.</strong> The key was copied whole, with no missing characters or stray spaces.<br>' +
+      '<strong>4.</strong> If you set website restrictions, this address is on the list ' +
+      '(add <code>http://localhost:*/*</code> for local testing).</p>' +
+      '<p class="muted" style="font-size:.88rem">A brand new key can also take a few minutes to ' +
+      'start working. If you just made it, wait five minutes and refresh.</p>');
+  }
+
+  window.initMissionMap = function () {
+    var map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: mapped[activeIndex].lat, lng: mapped[activeIndex].lng },
+      zoom: mapped[activeIndex].zoom || cfg.defaultZoom || 17,
+      mapTypeId: cfg.mapType || "hybrid",
+      tilt: 0,
+      streetViewControl: true,
+      mapTypeControl: true,
+      fullscreenControl: true,
+      gestureHandling: "cooperative"   // ctrl+scroll to zoom, so the page still scrolls normally
+    });
+
+    var pano = new google.maps.StreetViewPanorama(document.getElementById("pano"), {
+      visible: false,
+      addressControl: false,
+      fullscreenControl: true,
+      motionTracking: false,
+      motionTrackingControl: false
+    });
+    map.setStreetView(pano);   // makes the pegman drive our panel
+
+    var svService = new google.maps.StreetViewService();
+    var note = document.querySelector("[data-pano-note]");
+    var markers = [];
+
+    mapped.forEach(function (x, i) {
+      var marker = new google.maps.Marker({
+        position: { lat: x.lat, lng: x.lng },
+        map: map,
+        title: x.name,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 9,
+          fillColor: x.current ? "#d4952c" : "#2c6f63",
+          fillOpacity: 1,
+          strokeColor: "#ffffff",
+          strokeWeight: 3
+        }
+      });
+      var info = new google.maps.InfoWindow({
+        content: '<div style="font-family:Inter,sans-serif;font-size:.9rem;line-height:1.5">' +
+          '<strong style="font-family:Fraunces,Georgia,serif;font-size:1.05rem">' + esc(x.name) + '</strong><br>' +
+          esc(x.region) + '<br>' +
+          MW.fmtDate(x.start, "short") + ' – ' + (x.end ? MW.fmtDate(x.end, "short") : "now") +
+          (x.companion ? '<br>With ' + esc(x.companion) : '') + '</div>'
+      });
+      marker.addListener("click", function () {
+        markers.forEach(function (m) { m.info.close(); });
+        info.open(map, marker);
+        select(i);
+      });
+      markers.push({ marker: marker, info: info });
+    });
+
+    // Trail between field areas, in the order he served them
+    var field = mapped.filter(function (x) { return x.type !== "mtc"; });
+    if (field.length > 1) {
+      new google.maps.Polyline({
+        path: field.map(function (x) { return { lat: x.lat, lng: x.lng }; }),
+        map: map,
+        strokeColor: "#b4553a",
+        strokeOpacity: 0.9,
+        strokeWeight: 2.5
+      });
+    }
+
+    function showPano(x) {
+      var target = new google.maps.LatLng(x.lat, x.lng);
+      svService.getPanorama({ location: target, radius: 400, source: "outdoor" }, function (data, status) {
+        if (status === "OK" && data && data.location) {
+          pano.setPano(data.location.pano);
+          // Point the camera at the spot rather than wherever the car was facing
+          pano.setPov({
+            heading: google.maps.geometry.spherical.computeHeading(data.location.latLng, target),
+            pitch: 0
+          });
+          pano.setZoom(0);
+          pano.setVisible(true);
+          note.hidden = true;
+        } else {
+          pano.setVisible(false);
+          note.hidden = false;
+          note.innerHTML = '<strong>No street view here yet.</strong><br>' +
+            'Google has not driven this spot — common in the smaller barangays. ' +
+            'The satellite view still shows it, and you can drag the orange person onto a nearby ' +
+            'road to look around.';
+        }
+      });
+    }
+
+    function select(i) {
+      activeIndex = i;
+      var x = mapped[i];
+      map.panTo({ lat: x.lat, lng: x.lng });
+      map.setZoom(x.zoom || cfg.defaultZoom || 17);
+      showPano(x);
+      document.querySelectorAll(".area-tab").forEach(function (b) {
+        b.classList.toggle("is-active", b.dataset.area === String(i));
+      });
+    }
+
+    document.querySelector("[data-area-tabs]").addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-area]");
+      if (!btn) return;
+      if (btn.dataset.area === "all") {
+        var bounds = new google.maps.LatLngBounds();
+        mapped.forEach(function (x) { bounds.extend({ lat: x.lat, lng: x.lng }); });
+        bounds.extend(M.mission.mapCenter);   // keep the mission itself in frame
+        map.fitBounds(bounds, 60);
+        document.querySelectorAll(".area-tab").forEach(function (b) {
+          b.classList.toggle("is-active", b.dataset.area === "all");
+        });
+        return;
+      }
+      select(Number(btn.dataset.area));
+    });
+
+    showPano(mapped[activeIndex]);
+
+    // A working map paints a .gm-style container. A rejected key leaves either
+    // nothing or a StaticMapService placeholder image — catch both.
+    setTimeout(function () {
+      var el = document.getElementById("map");
+      if (!el) return;
+      var healthy = el.querySelector(".gm-style") && !el.querySelector('img[src*="StaticMapService"]');
+      if (!healthy) keyProblem();
+    }, 4000);
+  };
+
+  window.gm_authFailure = keyProblem;
+
+  var s = document.createElement("script");
+  s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(cfg.apiKey) +
+          "&libraries=geometry&v=weekly&loading=async&callback=initMissionMap";
+  s.async = true;
+  s.onerror = function () {
+    document.querySelector(".map-shell").innerHTML =
+      '<div class="map-setup"><h3>Could not reach Google Maps</h3>' +
+      '<p>Check your internet connection and reload.</p></div>';
+  };
+  document.head.appendChild(s);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spiritual Thoughts — Elder Preston Waters</title>
+<meta name="description" content="The spiritual thoughts and scriptures Elder Preston Waters shares in his weekly emails, collected in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">Collected from his emails</p>
+    <h1>Spiritual thoughts</h1>
+    <p class="lede" style="max-width:62ch">
+      Every week he tucks a scripture or a testimony somewhere into the email. This page pulls
+      just those parts out, so you can read them on their own.
+    </p>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:70px">
+  <div class="grid" data-thoughts style="gap:28px"></div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap wrap-narrow center">
+    <p class="eyebrow">Scripture index</p>
+    <h2>Verses he has shared</h2>
+    <div data-refs style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px"></div>
+  </div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var esc = MW.esc;
+  var items = MW.LETTERS.filter(function (l) {
+    return l.spiritualThought && l.spiritualThought.scripture;
+  });
+
+  var host = document.querySelector("[data-thoughts]");
+  if (!items.length) {
+    host.innerHTML = '<p class="muted">No spiritual thoughts recorded yet.</p>';
+  } else {
+    host.innerHTML = items.map(function (l) {
+      var t = l.spiritualThought;
+      return '<article class="thought-card">' +
+        '<div class="letter-card__meta" style="margin-bottom:14px">' +
+          '<span class="pill">Week ' + esc(l.week) + '</span>' +
+          '<span>' + MW.fmtDate(l.date) + '</span>' +
+          '<span>&middot;</span><span>' + esc(l.location) + '</span>' +
+        '</div>' +
+        (t.title ? '<h2 style="font-size:1.45rem;margin-bottom:.5em">' + esc(t.title) + '</h2>' : '') +
+        (t.intro ? '<p style="color:var(--ink-soft);font-size:.96rem">' + esc(t.intro) + '</p>' : '') +
+        '<p class="thought-card__quote">&ldquo;' + esc(t.scripture) + '&rdquo;</p>' +
+        (t.scriptureRef ? '<p class="thought-card__ref">' + esc(t.scriptureRef) + '</p>' : '') +
+        '<p style="margin:1.4em 0 0"><a href="letters.html#' + esc(l.id) + '">Read the full letter &rarr;</a></p>' +
+        '</article>';
+    }).join("");
+  }
+
+  var refs = [];
+  items.forEach(function (l) {
+    var r = l.spiritualThought.scriptureRef;
+    if (r && refs.indexOf(r) === -1) refs.push(r);
+  });
+  var refHost = document.querySelector("[data-refs]");
+  refHost.innerHTML = refs.length
+    ? refs.map(function (r) { return '<span class="pill pill--gold" style="font-size:.85rem;padding:7px 15px">' + esc(r) + '</span>'; }).join("")
+    : '<p class="muted">Scripture references will collect here as he shares them.</p>';
+});
+</script>
+</body>
+</html>

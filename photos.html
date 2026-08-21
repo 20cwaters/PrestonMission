@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photos — Elder Preston Waters</title>
+<meta name="description" content="Every photo Elder Preston Waters has sent home, with his own captions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">With his own captions</p>
+    <h1>Photos</h1>
+    <p class="lede" style="max-width:60ch" data-intro></p>
+    <div class="toolbar" style="margin-top:26px">
+      <select class="select" data-group style="width:auto">
+        <option value="date">Group by week</option>
+        <option value="location">Group by place</option>
+        <option value="none">No grouping</option>
+      </select>
+      <a class="btn btn--ghost btn--sm" data-album target="_blank" rel="noopener">Full Google Photos album</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:70px">
+  <div data-gallery></div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var esc = MW.esc, all = MW.PHOTOS;
+  var host = document.querySelector("[data-gallery]");
+
+  document.querySelector("[data-album]").href = MW.M.links.googlePhotos;
+  document.querySelector("[data-intro]").textContent = all.length
+    ? all.length + " photos so far. Click any one to see it full size and step through with the arrow keys."
+    : "No photos yet.";
+
+  function letterTitle(id) {
+    var l = MW.LETTERS.filter(function (x) { return x.id === id; })[0];
+    return l ? l.title : "";
+  }
+
+  function render(mode) {
+    if (!all.length) { host.innerHTML = '<p class="muted">Nothing here yet.</p>'; return; }
+
+    if (mode === "none") {
+      host.innerHTML = '<div class="photo-grid" data-grid="all"></div>';
+      MW.renderPhotoGrid(host.querySelector('[data-grid="all"]'), all);
+      return;
+    }
+
+    var groups = [], index = {};
+    all.forEach(function (p) {
+      var key = mode === "location" ? (p.location || "Elsewhere") : p.date;
+      if (!index[key]) { index[key] = { key: key, items: [] }; groups.push(index[key]); }
+      index[key].items.push(p);
+    });
+
+    host.innerHTML = groups.map(function (g, i) {
+      var heading, sub = "";
+      if (mode === "location") {
+        heading = g.key;
+        sub = g.items.length + (g.items.length === 1 ? " photo" : " photos");
+      } else {
+        heading = MW.fmtDate(g.key);
+        sub = letterTitle(g.items[0].letterId);
+      }
+      return '<div style="margin-bottom:46px">' +
+        '<div class="section-head" style="margin-bottom:18px">' +
+          '<div><h2 style="font-size:1.35rem;margin-bottom:2px">' + esc(heading) + '</h2>' +
+          (sub ? '<p class="muted" style="margin:0;font-size:.9rem">' + esc(sub) + '</p>' : '') + '</div>' +
+          (mode === "date" && g.items[0].letterId
+            ? '<a class="btn btn--ghost btn--sm" href="letters.html#' + esc(g.items[0].letterId) + '">Read that letter</a>'
+            : '') +
+        '</div>' +
+        '<div class="photo-grid" data-grid="' + i + '"></div>' +
+        '</div>';
+    }).join("");
+
+    groups.forEach(function (g, i) {
+      MW.renderPhotoGrid(host.querySelector('[data-grid="' + i + '"]'), g.items);
+    });
+  }
+
+  var sel = document.querySelector("[data-group]");
+  sel.addEventListener("change", function () { render(sel.value); });
+  render("date");
+});
+</script>
+</body>
+</html>

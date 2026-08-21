@@ -1,0 +1,17 @@
+# Original photo files and the Gmail zips. The renamed, in-use copies live in
+# photos/ and ARE tracked — these are just the untouched originals, and they
+# would double the size of the repo for no benefit.
+photos/_inbox/_filed/
+photos/_inbox/unzipped/
+photos/_inbox/*.zip
+
+# Timestamped copies the automation makes before it edits the data files
+data/.backup/
+
+# Tooling
+node_modules/
+
+# Windows / macOS clutter
+Thumbs.db
+Desktop.ini
+.DS_Store

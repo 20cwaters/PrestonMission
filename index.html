@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elder Preston Waters — Philippines Tuguegarao Mission</title>
+<meta name="description" content="Follow Elder Preston Waters on his mission to the Philippines Tuguegarao Mission — weekly letters, photos, spiritual thoughts, and where he is serving.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="hero">
+  <svg class="hero__rays" viewBox="0 0 100 100" aria-hidden="true">
+    <g stroke="#fff" stroke-width="1.4">
+      <line x1="50" y1="50" x2="50" y2="0"/><line x1="50" y1="50" x2="93" y2="25"/>
+      <line x1="50" y1="50" x2="100" y2="50"/><line x1="50" y1="50" x2="93" y2="75"/>
+      <line x1="50" y1="50" x2="50" y2="100"/><line x1="50" y1="50" x2="7" y2="75"/>
+      <line x1="50" y1="50" x2="0" y2="50"/><line x1="50" y1="50" x2="7" y2="25"/>
+      <line x1="50" y1="50" x2="75" y2="7"/><line x1="50" y1="50" x2="25" y2="7"/>
+      <line x1="50" y1="50" x2="75" y2="93"/><line x1="50" y1="50" x2="25" y2="93"/>
+    </g>
+    <circle cx="50" cy="50" r="14" fill="#fff"/>
+  </svg>
+  <div class="wrap hero__inner">
+    <div>
+      <p class="eyebrow" data-hero-eyebrow></p>
+      <h1 data-hero-name></h1>
+      <p class="hero__sub" data-hero-sub></p>
+      <div class="hero__facts" data-hero-facts></div>
+      <p style="margin-top:2rem;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn--light" href="letters.html">Read his letters</a>
+        <a class="btn btn--light" href="photos.html">See photos</a>
+      </p>
+    </div>
+    <div class="portrait" data-portrait></div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="progress-card">
+      <div class="progress-stats" data-stats></div>
+      <div class="bar"><div class="bar__fill" data-bar style="width:0%"></div></div>
+      <div class="bar-labels" data-bar-labels></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:start">
+      <div data-latest-letter></div>
+      <div>
+        <div class="card" data-where></div>
+        <div style="height:24px"></div>
+        <div class="card" data-tagalog-card></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">From the field</p>
+        <h2>Recent photos</h2>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn--ghost btn--sm" href="photos.html">All photos</a>
+        <a class="btn btn--ghost btn--sm" data-album target="_blank" rel="noopener">Google Photos album</a>
+      </div>
+    </div>
+    <div class="photo-grid" data-recent-photos></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Straight from the emails</p>
+        <h2>Latest spiritual thought</h2>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="thoughts.html">All thoughts</a>
+    </div>
+    <div data-latest-thought></div>
+  </div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var M = MW.M, st = MW.status(), esc = MW.esc;
+
+  /* ---- hero ---- */
+  document.querySelector("[data-hero-eyebrow]").textContent = M.mission.name;
+  document.querySelector("[data-hero-name]").textContent = M.missionary.fullName;
+  document.querySelector("[data-hero-sub]").textContent = M.missionary.tagline;
+
+  var icon = {
+    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 01-8 8H7l-4 3v-5.5A8 8 0 1121 12z"/></svg>',
+    cal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>',
+    user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>'
+  };
+  var facts = [
+    { i: icon.pin, t: st.area ? st.area.name + " · " + st.area.region : M.mission.country },
+    { i: icon.chat, t: "Speaking " + M.mission.language },
+    { i: icon.cal, t: st.inMtc ? "Week " + st.mtcWeek + " at the MTC"
+        : (st.transfer ? "Transfer " + st.transfer + ", week " + st.transferWeek : "In the field") }
+  ];
+  if (st.area && st.area.companion) facts.push({ i: icon.user, t: "Companion: " + st.area.companion });
+  document.querySelector("[data-hero-facts]").innerHTML = facts.map(function (f) {
+    return '<span class="chip">' + f.i + esc(f.t) + '</span>';
+  }).join("");
+
+  var portrait = document.querySelector("[data-portrait]");
+  portrait.innerHTML = '<img src="' + esc(M.missionary.portrait) + '" alt="' + esc(M.missionary.fullName) + '" ' +
+    'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
+    '<div class="portrait__ph" style="display:none">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/>' +
+      '<path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>' +
+      '<span>Save his mission photo as<br><strong>photos/preston.jpg</strong></span></div>';
+
+  /* ---- progress ---- */
+  var stats = [
+    { n: st.daysOut, l: "Days out" },
+    { n: st.daysLeft, l: "Days left" },
+    { n: Math.round(st.percent), l: "% complete", suffix: "%" },
+    { n: st.years + "y " + st.months + "m " + st.days + "d", l: "Time served", raw: true }
+  ];
+  if (st.untilManila !== null && st.untilManila >= 0) {
+    stats.splice(3, 0, { n: st.untilManila, l: "Days to Manila MTC" });
+  }
+  document.querySelector("[data-stats]").innerHTML = stats.map(function (s) {
+    var num = s.suffix ? s.n + '<span>' + s.suffix + '</span>' : s.n;
+    return '<div class="stat"><div class="stat__num">' + num + '</div>' +
+      '<div class="stat__label">' + esc(s.l) + '</div></div>';
+  }).join("");
+  setTimeout(function () {
+    document.querySelector("[data-bar]").style.width = st.percent + "%";
+  }, 120);
+  document.querySelector("[data-bar-labels]").innerHTML =
+    '<span>' + MW.fmtDate(M.dates.mtcStart, "short") + ' &middot; entered the MTC</span>' +
+    '<span>' + MW.fmtDate(M.dates.release, "short") + ' &middot; home</span>';
+
+  /* ---- latest letter ---- */
+  var latest = MW.LETTERS[0];
+  var el = document.querySelector("[data-latest-letter]");
+  if (latest) {
+    el.innerHTML =
+      '<p class="eyebrow">Latest letter</p>' +
+      '<div class="card">' +
+        MW.letterMeta(latest) +
+        '<h2 style="font-size:1.7rem">' + esc(latest.title) + '</h2>' +
+        '<p style="color:var(--ink-soft)">' + esc(MW.excerpt(latest, 420)) + '</p>' +
+        '<a class="btn btn--sm" href="letters.html#' + esc(latest.id) + '">Read the whole thing</a>' +
+      '</div>';
+  } else {
+    el.innerHTML = '<div class="card"><p class="muted">No letters yet — the first one lands soon.</p></div>';
+  }
+
+  /* ---- where he is ---- */
+  var a = st.area;
+  document.querySelector("[data-where]").innerHTML =
+    '<p class="eyebrow">Right now</p>' +
+    '<h3>' + esc(a ? a.name : "—") + '</h3>' +
+    '<p class="muted" style="margin-bottom:1em">' + esc(a ? a.region : "") + '</p>' +
+    (a && a.note ? '<p style="font-size:.95rem;color:var(--ink-soft)">' + esc(a.note) + '</p>' : '') +
+    '<p style="font-size:.9rem;margin-bottom:1.2em">' +
+      '<strong>Arrived:</strong> ' + (a ? MW.fmtDate(a.start) : "") + '<br>' +
+      '<strong>Companion:</strong> ' + esc(a && a.companion ? a.companion : "to be announced") +
+    '</p>' +
+    '<a class="btn btn--ghost btn--sm" href="map.html">See it on the map</a>';
+
+  /* ---- tagalog ---- */
+  var words = MW.allTagalog().slice(0, 4);
+  document.querySelector("[data-tagalog-card]").innerHTML =
+    '<p class="eyebrow">Tagalog corner</p>' +
+    '<h3 style="margin-bottom:.9em">Words he has taught us</h3>' +
+    (words.length
+      ? '<div class="word-list">' + words.map(function (w) {
+          return '<div class="word"><span class="word__term">' + esc(w.word) + '</span>' +
+                 '<span class="word__def">' + esc(w.meaning) + '</span></div>';
+        }).join("") + '</div>' +
+        '<p style="margin:1.2em 0 0"><a href="about.html#tagalog">The whole glossary &rarr;</a></p>'
+      : '<p class="muted">Nothing yet.</p>');
+
+  /* ---- recent photos ---- */
+  document.querySelector("[data-album]").href = M.links.googlePhotos;
+  MW.renderPhotoGrid(document.querySelector("[data-recent-photos]"), MW.PHOTOS.slice(0, 8));
+
+  /* ---- latest thought ---- */
+  var withThought = MW.LETTERS.filter(function (l) { return l.spiritualThought && l.spiritualThought.scripture; })[0];
+  var tEl = document.querySelector("[data-latest-thought]");
+  if (withThought) {
+    var t = withThought.spiritualThought;
+    tEl.innerHTML =
+      '<div class="thought-card">' +
+        (t.title ? '<h3 style="margin-bottom:.6em">' + esc(t.title) + '</h3>' : '') +
+        (t.intro ? '<p style="color:var(--ink-soft);font-size:.95rem">' + esc(t.intro) + '</p>' : '') +
+        '<p class="thought-card__quote">&ldquo;' + esc(t.scripture) + '&rdquo;</p>' +
+        '<p class="thought-card__ref">' + esc(t.scriptureRef || withThought.title) +
+          ' &middot; ' + MW.fmtDate(withThought.date, "short") + '</p>' +
+      '</div>';
+  } else {
+    tEl.innerHTML = '<p class="muted">No spiritual thoughts recorded yet.</p>';
+  }
+});
+</script>
+</body>
+</html>

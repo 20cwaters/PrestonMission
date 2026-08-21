@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letters — Elder Preston Waters</title>
+<meta name="description" content="Every weekly email from Elder Preston Waters, from the Provo MTC to the Philippines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">Every week, in his own words</p>
+    <h1>Letters</h1>
+    <p class="lede" style="max-width:60ch" data-intro></p>
+
+    <div class="toolbar" style="margin-top:28px">
+      <div class="search-wrap">
+        <input class="input" type="search" data-search placeholder="Search his letters…" aria-label="Search letters">
+      </div>
+      <select class="select" data-filter style="width:auto">
+        <option value="">All locations</option>
+      </select>
+      <span class="muted" data-count style="font-size:.9rem"></span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:60px">
+  <div data-letters></div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var esc = MW.esc, all = MW.LETTERS;
+  var host = document.querySelector("[data-letters]");
+  var search = document.querySelector("[data-search]");
+  var filter = document.querySelector("[data-filter]");
+
+  document.querySelector("[data-intro]").textContent =
+    all.length + " letter" + (all.length === 1 ? "" : "s") + " so far, starting " +
+    MW.fmtDate(all.length ? all[all.length - 1].date : MW.M.dates.mtcStart) +
+    ". Newest first — use the search to find that one story you half remember.";
+
+  var locations = [];
+  all.forEach(function (l) { if (locations.indexOf(l.location) === -1) locations.push(l.location); });
+  locations.forEach(function (loc) {
+    var o = document.createElement("option");
+    o.value = loc; o.textContent = loc;
+    filter.appendChild(o);
+  });
+
+  function letterHtml(l) {
+    var pics = MW.photosFor(l.id);
+    return '<article class="letter-full" id="' + esc(l.id) + '">' +
+      MW.letterMeta(l) +
+      '<h2 style="font-size:clamp(1.6rem,3.4vw,2.25rem)">' + esc(l.title) + '</h2>' +
+      '<div class="letter-full__body">' + MW.letterBodyHtml(l) + '</div>' +
+      (pics.length
+        ? '<h3 style="margin-top:2em;font-size:1.05rem;letter-spacing:.02em">Photos from this week</h3>' +
+          '<div class="photo-grid" data-pics="' + esc(l.id) + '"></div>'
+        : '') +
+      (l.albumUrl
+        ? '<p style="margin-top:1.6em"><a class="btn btn--ghost btn--sm" href="' + esc(l.albumUrl) +
+          '" target="_blank" rel="noopener">Open his Google Photos album</a></p>'
+        : '') +
+      '</article>';
+  }
+
+  function render(list) {
+    if (!list.length) {
+      host.innerHTML = '<p class="muted" style="padding:40px 0">Nothing matches that. Try another word.</p>';
+      document.querySelector("[data-count]").textContent = "0 letters";
+      return;
+    }
+    host.innerHTML = list.map(letterHtml).join("");
+    list.forEach(function (l) {
+      var grid = host.querySelector('[data-pics="' + l.id + '"]');
+      if (grid) MW.renderPhotoGrid(grid, MW.photosFor(l.id));
+    });
+    document.querySelector("[data-count]").textContent =
+      list.length + " letter" + (list.length === 1 ? "" : "s") + " shown";
+  }
+
+  function apply() {
+    var q = search.value.trim().toLowerCase();
+    var loc = filter.value;
+    render(all.filter(function (l) {
+      if (loc && l.location !== loc) return false;
+      if (!q) return true;
+      var hay = (l.title + " " + l.location + " " + l.body.map(function (b) { return b.text; }).join(" ") +
+        " " + (l.tagalog || []).map(function (w) { return w.word + " " + w.meaning; }).join(" ") +
+        " " + MW.photosFor(l.id).map(function (p) { return p.caption; }).join(" ")).toLowerCase();
+      return hay.indexOf(q) !== -1;
+    }));
+  }
+
+  search.addEventListener("input", apply);
+  filter.addEventListener("change", apply);
+  render(all);
+
+  if (location.hash) {
+    var target = document.getElementById(location.hash.slice(1));
+    if (target) setTimeout(function () { target.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+  }
+});
+</script>
+</body>
+</html>
