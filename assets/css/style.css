@@ -508,6 +508,54 @@ blockquote.scripture cite {
 .field-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 14px; }
 .field label { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
 
+/* ============================================================
+   Phones
+   ============================================================ */
+
+@media (max-width: 640px) {
+  /* Desktop section rhythm is too airy on a small screen — it turns
+     into a lot of scrolling past empty space. */
+  .section { padding: 44px 0; }
+  .section--tight { padding: 32px 0; }
+  .wrap { padding: 0 18px; }
+
+  .card, .progress-card { padding: 20px 20px; }
+  .thought-card { padding: 24px 22px; }
+  .thought-card__quote { font-size: 1.08rem; }
+  .letter-full { padding: 32px 0; }
+  .letter-full__body { font-size: 1rem; }
+  blockquote.scripture { padding: 18px 18px; margin: 1.4em 0; font-size: 1rem; }
+  .letter-card { padding: 20px 20px; }
+  .hero__sub { font-size: 1.05rem; }
+  .stat__num { font-size: 2rem; }
+
+  /* Two per row reads far better than one giant square per scroll. */
+  .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .photo__cap { font-size: .76rem; padding: 20px 10px 9px; }
+
+  /* Term over definition instead of squeezed side by side */
+  .word { flex-direction: column; gap: 2px; padding: 12px 14px; }
+  .word__def { margin-left: 0; text-align: left; }
+
+  /* Keep the arrows off the picture */
+  .lightbox { padding: 60px 12px 80px; }
+  .lightbox__nav { top: auto; bottom: 18px; transform: none; }
+  .lightbox__nav--prev { left: 25%; }
+  .lightbox__nav--next { right: 25%; }
+  .lightbox img { max-height: 68vh; }
+
+  .timeline { padding-left: 26px; }
+  .footer-bottom { flex-direction: column; gap: 6px; }
+}
+
+/* Comfortable thumbs: 42px clears the usual 40px minimum */
+.nav-toggle { height: 42px; }
+
+/* Stop iOS inflating text in landscape, and never let a long word
+   or URL push the page sideways. */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-wrap: break-word; }
+
 @media print {
   .site-header, .site-footer, .toolbar, .btn { display: none !important; }
   body { background: #fff; }

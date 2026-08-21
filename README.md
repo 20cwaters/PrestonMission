@@ -21,6 +21,28 @@ in the photo, files them under the right names, and moves your originals into `_
 The task only runs while the Claude app is open; if it's closed on Wednesday it catches up at the
 next launch.
 
+### Photos get optimized automatically
+
+Straight off a phone his photos are 3–8 MB each. The automation runs the optimizer after filing
+them, and you can run it yourself any time:
+
+```bash
+npm run optimize
+```
+
+It writes a web-sized version (`photos/NAME.jpg`, max 1600px) plus a thumbnail
+(`photos/thumbs/NAME.jpg`, max 500px), and the site uses the thumbnails for grids and the full
+version in the lightbox. It also bakes EXIF rotation into the pixels so nothing appears sideways,
+and strips metadata including GPS coordinates — worth having off a public site full of pictures
+of where someone lives.
+
+Untouched originals are kept in `photos/_inbox/_filed/`, which git ignores. The script is safe to
+re-run and skips anything already done. The first run took the eight existing photos from 21.9 MB
+to 1.9 MB.
+
+This needs the one dev dependency in `package.json`; run `npm install` once if you ever move the
+project to a new machine. The site itself still has no build step.
+
 ---
 
 ## Weekly routine — the manual way

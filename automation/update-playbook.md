@@ -153,6 +153,23 @@ Write each to `photos/YYYY-MM-DD-N.jpg`, where `N` is the position of its captio
 - If the number of images doesn't match the number of captions, file the ones you're confident
   about and report the mismatch.
 
+### Then optimize them — do not skip this
+
+Photos off a phone are 3–8 MB each, far too heavy for the live site and for the repo. After
+filing, always run:
+
+```
+npm run optimize
+```
+
+This resizes every photo to a web-sized version plus a thumbnail, bakes in EXIF rotation so
+nothing shows up sideways, and strips metadata (including GPS coordinates, which is worth
+having off a public site). It keeps untouched originals in `photos/_inbox/_filed/`, is safe to
+re-run, and skips anything already done. Typical saving is about 90%.
+
+Report the before/after totals it prints. If it fails, say so and do not commit the giant
+originals — a few unoptimized megabytes in git are permanent.
+
 **If neither source has anything**, leave the placeholders. The site renders a labelled tile
 naming the file it's waiting for, so nothing looks broken. List the needed filenames in the report.
 

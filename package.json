@@ -1,0 +1,13 @@
+{
+  "name": "preston-mission-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static site for Elder Preston Waters' mission. Tooling only - the site itself has no build step.",
+  "type": "module",
+  "scripts": {
+    "optimize": "node automation/optimize-photos.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.2"
+  }
+}

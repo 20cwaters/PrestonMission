@@ -217,10 +217,16 @@
     return PHOTOS.filter(function (p) { return p.letterId === letterId; });
   }
 
+  // Grids load the small version; the lightbox loads the full one.
+  // See automation/optimize-photos.mjs.
+  function thumbSrc(p) {
+    return p.src.replace(/^photos\//, "photos/thumbs/");
+  }
+
   function photoTile(p, index) {
     return '<button class="photo" data-photo-index="' + index + '" type="button">' +
-      '<img src="' + esc(p.src) + '" alt="' + esc(p.caption) + '" loading="lazy" ' +
-        'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
+      '<img src="' + esc(thumbSrc(p)) + '" data-full="' + esc(p.src) + '" ' +
+        'alt="' + esc(p.caption) + '" loading="lazy" decoding="async">' +
       '<span class="photo__ph" style="display:none">' +
         '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
         '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/>' +
@@ -232,12 +238,28 @@
       '</button>';
   }
 
+  // If the thumbnail is missing (photo added by hand, optimizer not run yet),
+  // fall back to the full image before giving up and showing the placeholder.
+  function handleImageFallback(img) {
+    if (img.dataset.full && img.src.indexOf("/thumbs/") !== -1) {
+      img.src = img.dataset.full;
+      return;
+    }
+    img.style.display = "none";
+    var ph = img.nextElementSibling;
+    if (ph) ph.style.display = "flex";
+  }
+
   function renderPhotoGrid(el, list) {
     if (!list.length) {
       el.innerHTML = '<p class="muted">No photos yet.</p>';
       return;
     }
     el.innerHTML = list.map(photoTile).join("");
+    el.querySelectorAll("img").forEach(function (img) {
+      img.addEventListener("error", function () { handleImageFallback(img); });
+      if (img.complete && img.naturalWidth === 0) handleImageFallback(img);
+    });
     el.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-photo-index]");
       if (btn) openLightbox(list, Number(btn.getAttribute("data-photo-index")));
