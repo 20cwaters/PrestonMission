@@ -34,7 +34,7 @@
       <div class="hero__facts" data-hero-facts></div>
       <p style="margin-top:2rem;display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn btn--light" href="letters.html">Read his letters</a>
-        <a class="btn btn--light" href="photos.html">See photos</a>
+        <a class="btn btn--outline-light" href="photos.html">See photos</a>
       </p>
     </div>
     <div class="portrait" data-portrait></div>
@@ -122,7 +122,12 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   if (st.area && st.area.companion) facts.push({ i: icon.user, t: "Companion: " + st.area.companion });
   document.querySelector("[data-hero-facts]").innerHTML = facts.map(function (f) {
-    return '<span class="chip">' + f.i + esc(f.t) + '</span>';
+    // "Companion: Elder Ferguson" reads better with the name emphasised
+    var split = f.t.indexOf(": ");
+    var body = split > -1
+      ? esc(f.t.slice(0, split + 1)) + ' <b>' + esc(f.t.slice(split + 2)) + '</b>'
+      : '<b>' + esc(f.t) + '</b>';
+    return '<span class="fact">' + f.i + '<span>' + body + '</span></span>';
   }).join("");
 
   var portrait = document.querySelector("[data-portrait]");

@@ -148,14 +148,21 @@ img { max-width: 100%; display: block; }
 .hero h1 { color: #fff; margin-bottom: .35em; }
 .hero .eyebrow { color: var(--gold); }
 .hero__sub { font-size: 1.14rem; color: rgba(255,255,255,.8); max-width: 46ch; margin-bottom: 1.6em; }
-.hero__facts { display: flex; flex-wrap: wrap; gap: 10px; }
-.chip {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 7px 14px; border-radius: 999px; font-size: .86rem; font-weight: 500;
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16);
-  color: rgba(255,255,255,.94);
+/* Facts are information, not actions — so no pill, no border, nothing that
+   invites a click. A hairline rule sets them apart as a metadata strip. */
+.hero__facts {
+  display: flex; flex-wrap: wrap;
+  gap: 12px 26px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.15);
 }
-.chip svg { width: 15px; height: 15px; opacity: .8; }
+.fact {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .89rem; line-height: 1.3;
+  color: rgba(255,255,255,.62);
+}
+.fact svg { width: 15px; height: 15px; flex: none; color: var(--gold); opacity: .9; }
+.fact b { font-weight: 600; color: rgba(255,255,255,.95); }
 
 .portrait {
   position: relative; border-radius: 20px; overflow: hidden;
@@ -239,8 +246,12 @@ img { max-width: 100%; display: block; }
 .btn:hover { background: var(--navy-deep); color: #fff; transform: translateY(-1px); box-shadow: var(--shadow); }
 .btn--ghost { background: transparent; color: var(--navy); }
 .btn--ghost:hover { background: var(--navy); color: #fff; }
-.btn--light { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); color: #fff; }
-.btn--light:hover { background: #fff; color: var(--navy-deep); border-color: #fff; }
+/* Solid white on the dark hero: unmistakably the thing to click */
+.btn--light { background: #fff; border-color: #fff; color: var(--navy-deep); }
+.btn--light:hover { background: var(--gold-soft); border-color: var(--gold-soft); color: var(--navy-deep); }
+/* Secondary action — clearly a button, clearly the lesser one */
+.btn--outline-light { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; }
+.btn--outline-light:hover { background: rgba(255,255,255,.14); border-color: #fff; color: #fff; }
 .btn--sm { padding: 8px 15px; font-size: .85rem; }
 
 /* ---------------- Letters ---------------- */
