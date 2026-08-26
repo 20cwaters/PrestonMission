@@ -6,6 +6,31 @@
 window.LETTERS = [
 
   {
+    id: "2026-08-25-one-more-week",
+    title: "One more week",
+    date: "2026-08-25",
+    location: "Provo MTC",
+    week: 3,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po! Only one more week left of provo mtc! I love this place but the food got old way too fast and im ready for some change. This week was a lot fun, we played sand volleyball everyday and it was a blast. One of the elders in my district is a two time volleyball state champ in a 5A school, so he's really scary at the net but its still a good time. We also found this secret shop in a random basement of one of the buildings, so we've been going there after volleyball to get ice cream." },
+      { type: "p", text: "It's been a while now since we started straight tagalog classes so that been challenging. We're also going to start SYL tomorrow, which stands for Speak Your Language, which means we have to go full emersion 24/7 for an entire week. The only time we speak English is if we don't know what a word is in tagalog. A fun new word I learned in tagalog is baboy (pig/pork). We also spent a whole class period learning about food and how to eat in the Philippines, so that was really cool. Apparently there's gonna be a time where they plop a bunch of food on giant palm leafs, and then everyone just eats as much as they can from the giant pile of food with only our hands. So I cant wait for that." },
+      { type: "p", text: "I'll end with one of my favorite scriptures, Matthew 5:43-44" },
+      { type: "scripture", ref: "Matthew 5:43–44", text: "43 ¶ Ye have heard that it hath been said, Thou shalt love thy neighbour, and hate thine enemy.\n\n44 But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you;" }
+    ],
+    spiritualThought: {
+      title: "Love your enemies",
+      intro: "I'll end with one of my favorite scriptures.",
+      scriptureRef: "Matthew 5:43–44",
+      scripture: "Ye have heard that it hath been said, Thou shalt love thy neighbour, and hate thine enemy. But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you;"
+    },
+    tagalog: [
+      { word: "Baboy", meaning: "Pig / pork" }
+    ],
+    photos: ["2026-08-25-1", "2026-08-25-2", "2026-08-25-3"]
+  },
+
+  {
     id: "2026-08-18-the-great-mtc-plague",
     title: "The Great MTC Plague",
     date: "2026-08-18",

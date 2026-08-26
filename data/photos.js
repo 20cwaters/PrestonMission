@@ -9,6 +9,19 @@
 
 window.PHOTOS = [
 
+  // ---- One more week (Aug 25, 2026) ----
+  { id: "2026-08-25-1", src: "photos/2026-08-25-1.jpg", date: "2026-08-25",
+    caption: "Branch Picture", location: "Provo MTC",
+    letterId: "2026-08-25-one-more-week" },
+
+  { id: "2026-08-25-2", src: "photos/2026-08-25-2.jpg", date: "2026-08-25",
+    caption: "New flag for our classroom", location: "Provo MTC",
+    letterId: "2026-08-25-one-more-week" },
+
+  { id: "2026-08-25-3", src: "photos/2026-08-25-3.jpg", date: "2026-08-25",
+    caption: "My comp getting a fresh cut", location: "Provo MTC",
+    letterId: "2026-08-25-one-more-week" },
+
   // ---- The Great MTC Plague (Aug 18, 2026) ----
   { id: "2026-08-18-1", src: "photos/2026-08-18-1.jpg", date: "2026-08-18",
     caption: "Saying goodbye to the best teacher for two weeks", location: "Provo MTC",
