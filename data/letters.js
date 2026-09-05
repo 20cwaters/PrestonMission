@@ -6,6 +6,30 @@
 window.LETTERS = [
 
   {
+    id: "2026-09-04-sa-philippines",
+    title: "Sa Philippines!!!",
+    date: "2026-09-04",
+    location: "Manila MTC",
+    week: 5,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Hello po! What a crazy week its been. My district and I just arrived in the Philippines earlier this week and its been wild. We first had to fly an hour and a half to LA, then from there we flew 13 and a half hours to Manila. Once we arrived in Manila, we were picked up by a bunch of sketchy vans and drove for about an hour to the Manila MTC. The funny thing about driving here is road is road. There are 0 traffic laws. So the entire hour drive was very chaotic. It was also raining really hard the entire time. This place is really cool though because there's giant sky scrapers, but then surrounding them are houndreds of tiny homes." },
+      { type: "p", text: "After arriving at the MTC, they gave us breakfast. And I can now say that the food is very interesting. They had waffles, but they also had these weird hotdog dessert rolls, rock bread thing (very stale bread square coated in sugar), mystery goop soups, and like they just cook a bunch of sunny side up eggs and throw them into a giant pot where you scoop them out. They also eat everything with rice, which wasn't really a surprise though. After that I got really sick and sent to a hotel to get some rest. I then slept for 17 hours and woke up feeling great the next day. I was put on a straight saltine cracker diet though for a whole day to help my stomach feel better." },
+      { type: "p", text: "Some good news, the MTC here is full, so I'll be going to the field next Wednesday (Tuesday for everyone in utah), instead of staying at the MTC for three weeks like I was supposed to, so that's very exciting. And since it's full, we have to stay in a hotel and do all of our classes at the church, so im not even at the MTC. I like it a lot more this way because the MTC was mad confusing and I like walking to the church everyday. During our breaks, we like to go outside and say hi to people driving by and attempt to talk to them in Tagalog. The people here are amazing and are so happy and kind, its been really fun trying to talk to them and seeing how happy it makes them that we're learning to speak their language." },
+      { type: "p", text: "I'll end with a scripture that I like:" },
+      { type: "scripture", ref: "1 Kings 19:11–12", text: "11 And he said, Go forth, and stand upon the mount before the Lord. And, behold, the Lord passed by, and a great and strong wind rent the mountains, and brake in pieces the rocks before the Lord; but the Lord was not in the wind: and after the wind an earthquake; but the Lord was not in the earthquake:\n\n12 And after the earthquake a fire; but the Lord was not in the fire: and after the fire a still small voice." }
+    ],
+    spiritualThought: {
+      title: "A still small voice",
+      intro: "I'll end with a scripture that I like.",
+      scriptureRef: "1 Kings 19:11–12",
+      scripture: "And he said, Go forth, and stand upon the mount before the Lord. And, behold, the Lord passed by, and a great and strong wind rent the mountains, and brake in pieces the rocks before the Lord; but the Lord was not in the wind: and after the wind an earthquake; but the Lord was not in the earthquake: And after the earthquake a fire; but the Lord was not in the fire: and after the fire a still small voice."
+    },
+    tagalog: [],
+    photos: []
+  },
+
+  {
     id: "2026-08-25-one-more-week",
     title: "One more week",
     date: "2026-08-25",

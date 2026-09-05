@@ -38,7 +38,7 @@ window.MISSION = {
 
   dates: {
     mtcStart: "2026-08-05",                  // entered the Provo MTC
-    manilaMtcStart: null,                    // TODO: date he flies to the Manila MTC (e.g. "2026-09-16")
+    manilaMtcStart: "2026-09-04",            // approximate — he said "earlier this week" in a letter dated 2026-09-04, no exact day given
     fieldStart: null,                        // TODO: first day in the actual mission field
     release: "2028-08-05",                   // expected release / homecoming
     transferLength: 6                        // weeks per transfer
@@ -76,25 +76,25 @@ window.MISSION = {
       region: "Provo, Utah, USA",
       type: "mtc",
       start: "2026-08-05",
-      end: null,
+      end: "2026-09-04",
       lat: 40.259166,
       lng: -111.645602,
       zoom: 17,                              // optional: overrides maps.defaultZoom for this area
       companion: "Elder Ferguson",
       note: "Six weeks of Tagalog, teaching practice, and cafeteria food that 'actually slaps.'",
+      current: false
+    },
+    {
+      name: "Manila MTC",
+      region: "Quezon City, Metro Manila",
+      type: "mtc",
+      start: "2026-09-04",
+      end: null,
+      lat: 14.5822,
+      lng: 121.0525,
+      companion: "",
+      note: "The MTC was full, so his group is staying at a hotel and taking classes at a nearby church building instead.",
       current: true
     }
-    // ,{
-    //   name: "Manila MTC",
-    //   region: "Quezon City, Metro Manila",
-    //   type: "mtc",
-    //   start: "2026-09-16",
-    //   end: null,
-    //   lat: 14.5822,
-    //   lng: 121.0525,
-    //   companion: "",
-    //   note: "",
-    //   current: false
-    // }
   ]
 };
