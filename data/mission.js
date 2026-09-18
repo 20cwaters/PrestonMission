@@ -39,7 +39,7 @@ window.MISSION = {
   dates: {
     mtcStart: "2026-08-05",                  // entered the Provo MTC
     manilaMtcStart: "2026-09-04",            // approximate — he said "earlier this week" in a letter dated 2026-09-04, no exact day given
-    fieldStart: null,                        // TODO: first day in the actual mission field
+    fieldStart: "2026-09-11",                // "arrived here in Tuguegarao last Friday" in a letter dated 2026-09-14 (Monday) -> Friday 2026-09-11
     release: "2028-08-05",                   // expected release / homecoming
     transferLength: 6                        // weeks per transfer
   },
@@ -89,11 +89,23 @@ window.MISSION = {
       region: "Quezon City, Metro Manila",
       type: "mtc",
       start: "2026-09-04",
-      end: null,
+      end: "2026-09-11",
       lat: 14.5822,
       lng: 121.0525,
       companion: "",
       note: "The MTC was full, so his group is staying at a hotel and taking classes at a nearby church building instead.",
+      current: false
+    },
+    {
+      name: "Tuguegarao",
+      region: "Cagayan, Philippines",
+      type: "area",
+      start: "2026-09-11",
+      end: null,
+      lat: 17.6132,
+      lng: 121.7270,
+      companion: "Elder Gardner and Elder Romin",
+      note: "The MTC was full, so his group got sent to the field two weeks early and put into trios instead of standard trainer/trainee companionships.",
       current: true
     }
   ]

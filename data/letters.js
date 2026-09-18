@@ -6,6 +6,33 @@
 window.LETTERS = [
 
   {
+    id: "2026-09-14-ipis-ipis-ipis-first-week-sa-field",
+    title: "Ipis ipis ipis. First week sa field!",
+    date: "2026-09-14",
+    location: "Tuguegarao",
+    week: 6,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Hello po! Just arrived here in Tuguegarao last Friday and its been so much fun. I got off the plane and right away I felt the heat everyone was talking about. The sun actually just feels like straight uv rays toasting my skin, plus humidity. But it honestly feels really good because I've been in rainy weather for the past week before. After that we met up with the president and APs and visited the temple site where the Tuguegarao temple is going to be built. After that we went to the mission home which is probably the best most luxury house in the Philippines. It was so nice and clean and modern, it was just a really cool house I don't know what else to say. We then ate some pizza hut which was masarap and given a quick overview of everything. Basically since the MTC is full, all of the new missionaries are getting thrown into the field two weeks early and put into trios. Its like a post mtc experience since im not on a trainy schedule, I'm basically just following my comps around like a lost dog, but its still a lot of fun." },
+      { type: "p", text: "I then was shipped off to the area I would spend the next two weeks in, about a 5 minute drive from the mission home. I met my new comps Elder Gardner, and Elder Romin, and they're amazing. The apartment were staying in was abandoned for 6 weeks, and the three of us just barely moved into it, so it was disgusting. Since it was abandoned, all the drains dried up, therefore are apartment became the cockroach spawn point. We spent at least an hour killing all the cockroaches and checking drawers, beds, cracks, and anywhere else they could fit." },
+      { type: "p", text: "After that we headed out and taught some lessons to people. That was a lot of fun except for the fact I didn't know what was going on. It was just a bunch of blah blah blah at like 80 words per second and then everyone would stare at me so I would go \"i know that book of mormom is true, amen\" in tagalog and then they laugh and go back to blah blah blah. But the people here are the nicest people I've ever met, and they're so kind and patient with my tagalog so that's very nice. One lady also kept giving me mango juice which was really delicious but after the 5th cup I was starting to feel sick but she just kept telling me to drink, and it got to the point she was filling up cups and setting them next to the cup I already had so I had some on queue." },
+      { type: "p", text: "But yeah its basically been that same routine everyday, wake up, study, teach, eat, teach, murder cockroaches, eat, sleep. There was one night we got McDonald's but when we got back to eat, there was at least 10 coackroaches, so I couldn't eat until we killed all of them. That same night it started pouring rain while we were out and we weren't prepared at all, so we got soaked, like completely drenched. Its also Christmas here already so Christmas music is constantly playing and there's light, trees, and decorations set up. But yeah i haven't ate any of the crazy foods yet, im hoping to eat the crazy food with my trainer, so I cant wait for that." },
+      { type: "p", text: "Here's a scripture that's helped me this week" },
+      { type: "scripture", ref: "1 Nephi 9:6", text: "6 But the Lord knoweth all things from the beginning; wherefore, he prepareth a way to accomplish all his works among the children of men; for behold, he hath all power unto the fulfilling of all his words. And thus it is. Amen." }
+    ],
+    spiritualThought: {
+      title: "He prepareth a way",
+      intro: "Here's a scripture that's helped me this week.",
+      scriptureRef: "1 Nephi 9:6",
+      scripture: "But the Lord knoweth all things from the beginning; wherefore, he prepareth a way to accomplish all his works among the children of men; for behold, he hath all power unto the fulfilling of all his words. And thus it is. Amen."
+    },
+    tagalog: [
+      { word: "Mga ipis", meaning: "Cockroaches" }
+    ],
+    photos: []
+  },
+
+  {
     id: "2026-09-04-sa-philippines",
     title: "Sa Philippines!!!",
     date: "2026-09-04",
