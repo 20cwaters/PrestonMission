@@ -9,6 +9,23 @@
 
 window.PHOTOS = [
 
+  // ---- Masarap food in the Philippines! (Sep 21, 2026) ----
+  { id: "2026-09-21-1", src: "photos/2026-09-21-1.jpg", date: "2026-09-21",
+    caption: "Huntsman spider", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+
+  { id: "2026-09-21-2", src: "photos/2026-09-21-2.jpg", date: "2026-09-21",
+    caption: "Goofy ah dog", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+
+  { id: "2026-09-21-3", src: "photos/2026-09-21-3.jpg", date: "2026-09-21",
+    caption: "Mango bag juice😋", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+
+  { id: "2026-09-21-4", src: "photos/2026-09-21-4.jpg", date: "2026-09-21",
+    caption: "fast food in the Philippines", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+
   // ---- One more week (Aug 25, 2026) ----
   { id: "2026-08-25-1", src: "photos/2026-08-25-1.jpg", date: "2026-08-25",
     caption: "Branch Picture", location: "Provo MTC",

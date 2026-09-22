@@ -46,7 +46,9 @@ window.MISSION = {
 
   links: {
     // The shared album he links in every email
-    googlePhotos: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA"
+    // Updated 2026-09-21: he lost access to his old missionary-linked albums
+    // (mission rule change) and his mom made this replacement album instead.
+    googlePhotos: "https://photos.app.goo.gl/Kiw5auqSNJPWt9CQ6"
   },
 
   /* ------------------------------------------------------------

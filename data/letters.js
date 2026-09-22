@@ -6,6 +6,31 @@
 window.LETTERS = [
 
   {
+    id: "2026-09-21-masarap-food-in-the-philippines",
+    title: "Masarap food in the Philippines!",
+    date: "2026-09-21",
+    location: "Tuguegarao",
+    week: 7,
+    albumUrl: "https://photos.app.goo.gl/Kiw5auqSNJPWt9CQ6",
+    body: [
+      { type: "p", text: "Kamusta po!! Just completed my second week in the field! So much has happened in just the span of one week its going to be hard to fit it all into one email. I first started off the week by going to the mall and hearing all the Christmas music and seeing the Christmas lights. Their Christmas music here is very interesting, its like straight rave music mixed with jingle bells, I kind of mess with it. We then had meetings with the president and went over some more rules about the mission. Sadly I had to leave all the missionary Google photo albums that I've joined so make sure to attach some photos to your emails so I can see what's going on. I also cant have anyone following my photo album except immediate family. But i had my mom make a different photo album that im not on, but it still has all the photos, so you can join that one instead. It was also suggested that I should wait to eat the street food until I've been a couple of more weeks in the field so my stomach can adjust and to be very careful of what I eat off the street." },
+      { type: "p", text: "The street food here is soooooo good. I ate some chicken barbecue with this spicy vinegar juice and it was delicious. I also had this fried egg roll looking thing and it was the most delicious thing I've ever tasted, I ate so many. I also tried fried pork blood cubes. It looks like blackish brown bubbly cubes and theyre pretty alright. Not my favorite but I'll eat them. They also boil eggs and then cover them in this orange batter stuff and fry them, and those were really good as well. I love the food here, and I basically live off rice now because they eat it with everything, including noodles which I still think is kinda weird. Everything you eat though has a million bones in it, half of the time I spend eating is just picking out bones in my mouth and spitting them out, so that's been taking a while to get used to." },
+      { type: "p", text: "The insects here are also really big. I saw my first huntsman spider at the bishops house and it was MASSIVE. It was like the size of my hand, and I got big grippers, so this spider was HUGE. But yeah it was just chilling on their wall and they had ZERO reaction to it like it was just normal. The kids here also love to have spider fights. They be collecting spiders like Pokémon and then they battle each other with their own spiders. Its really entertaining. But the spiders they collect are also really big and freaky looking so its even more entertaining." },
+      { type: "p", text: "I had my first baptism this Sunday so that was awesome! I got to baptize someone we've been teaching and her name is Jamaica. She's 19 and my comp found her a while ago. He found her because his old comp had a prompting to walk down a road they never walk down, and thats where they found her and she approached them and wanted to know about the church. It was such a cool experience to be able to teach someone about the gospel and progress them to baptism." },
+      { type: "p", text: "I want to end with this scripture that stood out to me this week:" },
+      { type: "scripture", ref: "Alma 7:13", text: "13 Now the Spirit knoweth all things; nevertheless the Son of God suffereth according to the flesh that he might take upon him the sins of his people, that he might blot out their transgressions according to the power of his deliverance; and now behold, this is the testimony which is in me." }
+    ],
+    spiritualThought: {
+      title: "This is the testimony which is in me",
+      intro: "I want to end with this scripture that stood out to me this week.",
+      scriptureRef: "Alma 7:13",
+      scripture: "Now the Spirit knoweth all things; nevertheless the Son of God suffereth according to the flesh that he might take upon him the sins of his people, that he might blot out their transgressions according to the power of his deliverance; and now behold, this is the testimony which is in me."
+    },
+    tagalog: [],
+    photos: ["2026-09-21-1", "2026-09-21-2", "2026-09-21-3", "2026-09-21-4"]
+  },
+
+  {
     id: "2026-09-14-ipis-ipis-ipis-first-week-sa-field",
     title: "Ipis ipis ipis. First week sa field!",
     date: "2026-09-14",
