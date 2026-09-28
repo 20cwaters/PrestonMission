@@ -9,6 +9,47 @@
 
 window.PHOTOS = [
 
+  // ---- SANTA ANA! (Sep 27, 2026) ----
+  { id: "2026-09-27-1", src: "photos/2026-09-27-1.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-2", src: "photos/2026-09-27-2.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-3", src: "photos/2026-09-27-3.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-4", src: "photos/2026-09-27-4.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-5", src: "photos/2026-09-27-5.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-6", src: "photos/2026-09-27-6.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-7", src: "photos/2026-09-27-7.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-8", src: "photos/2026-09-27-8.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-9", src: "photos/2026-09-27-9.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  { id: "2026-09-27-10", src: "photos/2026-09-27-10.jpg", date: "2026-09-27",
+    caption: "Santa Ana", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
   // ---- Masarap food in the Philippines! (Sep 21, 2026) ----
   { id: "2026-09-21-1", src: "photos/2026-09-21-1.jpg", date: "2026-09-21",
     caption: "Huntsman spider", location: "Tuguegarao",

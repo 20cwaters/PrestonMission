@@ -103,11 +103,24 @@ window.MISSION = {
       region: "Cagayan, Philippines",
       type: "area",
       start: "2026-09-11",
-      end: null,
+      end: "2026-09-27",                     // letter date — he didn't give the exact day of the move
       lat: 17.6132,
       lng: 121.7270,
       companion: "Elder Gardner and Elder Romin",
       note: "The MTC was full, so his group got sent to the field two weeks early and put into trios instead of standard trainer/trainee companionships.",
+      current: false
+    },
+    {
+      name: "Santa Ana",
+      region: "Cagayan, Philippines",
+      type: "area",
+      start: "2026-09-27",                   // letter date — he didn't give the exact day he arrived
+      end: null,
+      lat: 18.45,
+      lng: 122.15,
+      zoom: 15,
+      companion: "Elder Witehira",
+      note: "His first real area and trainer. Mountains right next to the ocean, and church meets in an old casino.",
       current: true
     }
   ]

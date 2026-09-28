@@ -6,6 +6,35 @@
 window.LETTERS = [
 
   {
+    id: "2026-09-27-santa-ana",
+    title: "SANTA ANA!",
+    date: "2026-09-27",
+    location: "Santa Ana",
+    week: 8,
+    albumUrl: "https://photos.app.goo.gl/Kiw5auqSNJPWt9CQ6",
+    body: [
+      { type: "p", text: "Kamusta po! It's been a wild week here in the Philippines, and I finally got assigned my first actual zone and trainer! All of the missionaries in my batch that were spread out across Tuguegarao for two weeks, all came together at the mission office where we opened our letters to see where we're going to be trained and who our trainers are. And I was called to Santa Ana with Elder Witehira as my trainer! I was so hyped becaus Elder Witehira and I talked to each before I opened my letter, and we had no idea we were going to be comps at the time." },
+      { type: "p", text: "Santa Ana🏖🌊⛰️:" },
+      { type: "p", text: "We then packed up our bags and got in a tiny van in the 115 degree weather and drove 3 and half hours to Santa Ana. When we arrived, it was dark so I couldnt really see what it looked like. So my comp and I got on our bikes and went to teach some lessons. The next morning when we went out to teach I was shocked! There's giant green mountains and ocean right next to each other! Its so beautiful here in Santa Ana, and the people here decorate with colorful bottles, like mtn dew and fanta bottles, and turn them into cool floral art, so its super colorful as well! We biked to this old couples house to do their baptismal interview for Sunday and when we arrived, we walked out to their house which is right next to the ocean and some kid gave me a crab" },
+      { type: "p", text: "We then took some cool pics at the beach and took some time to just admire God's creations." },
+      { type: "p", text: "After that we went to a birthday party for a guy who was also going to get baptized on sunday, and so we also taught him more about baptism and the gospel. He then fed us some delicious food. I started to eat this mystery meat stuff with my rice, and it was really yummy so I asked them what it was, and they said it was pork blood. Their kid was also like three years old, and she was blasting Oliver Tree on a phone the ENITRE time she and new almost every word to his songs. We did some more teachings about the sacrament and invited people to church, and after that we noticed the sunset was really pretty so we stopped and admired God's creations some more" },
+      { type: "p", text: "Then we had 5 baptisms this sunday! Three of them was a family of 3, the guys family who had the birthday party, and the other two were the two older couple who lived by the beach. But first we had church, which is in a old casino so it looks really cool, and i had to introduce myself in front of everyone and share my testimony in Tagalog which was scary but it worked out okay. Then after that we had the baptisms. My comp is actually the best ever because he let me baptize the two older couple, and I got to baptize them in the ocean." },
+      { type: "p", text: "The spirit was so strong there and I will never forget the joy and smiles on their faces when they came out of the water and were filled with the spirit." },
+      { type: "p", text: "This week has been an amazing week serving the lord here in the Philippines! Even though im still struggling with Tagalog, my trainer has been really good at teaching me and forcing me to speak and teach in Tagalog so I can learn faster. But anyways, that's all for this week, love you all! Kita kits!!!" },
+      { type: "p", text: "Spiritual Scripture:" },
+      { type: "scripture", ref: "3 Nephi 11:33", text: "33 And whoso believeth in me, and is baptized, the same shall be saved; and they are they who shall inherit the kingdom of God." }
+    ],
+    spiritualThought: {
+      title: "Whoso believeth in me, and is baptized",
+      intro: "Spiritual Scripture:",
+      scriptureRef: "3 Nephi 11:33",
+      scripture: "And whoso believeth in me, and is baptized, the same shall be saved; and they are they who shall inherit the kingdom of God."
+    },
+    tagalog: [],
+    photos: ["2026-09-27-1", "2026-09-27-2", "2026-09-27-3", "2026-09-27-4", "2026-09-27-5", "2026-09-27-6", "2026-09-27-7", "2026-09-27-8", "2026-09-27-9", "2026-09-27-10"]
+  },
+
+  {
     id: "2026-09-21-masarap-food-in-the-philippines",
     title: "Masarap food in the Philippines!",
     date: "2026-09-21",
