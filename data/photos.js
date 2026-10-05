@@ -9,6 +9,32 @@
 
 window.PHOTOS = [
 
+  // ---- Operation exterminate Remi the rat (Oct 5, 2026) ----
+  // No caption lines in this email; captions are taken from his own words next to each inline photo.
+  { id: "2026-10-05-1", src: "photos/2026-10-05-1.jpg", date: "2026-10-05",
+    caption: "I also saw Elder Young there!!!", location: "Manila",
+    letterId: "2026-10-05-operation-exterminate-remi-the-rat" },
+
+  { id: "2026-10-05-2", src: "photos/2026-10-05-2.jpg", date: "2026-10-05",
+    caption: "The Manila Temple", location: "Manila",
+    letterId: "2026-10-05-operation-exterminate-remi-the-rat" },
+
+  { id: "2026-10-05-3", src: "photos/2026-10-05-3.jpg", date: "2026-10-05",
+    caption: "My comp and I wore some sick sock ties", location: "Santa Ana",
+    letterId: "2026-10-05-operation-exterminate-remi-the-rat" },
+
+  { id: "2026-10-05-4", src: "photos/2026-10-05-4.jpg", date: "2026-10-05",
+    caption: "This giant group of kids", location: "Santa Ana",
+    letterId: "2026-10-05-operation-exterminate-remi-the-rat" },
+
+  { id: "2026-10-05-5", src: "photos/2026-10-05-5.jpg", date: "2026-10-05",
+    caption: "My roommate cooked pork on an electric ran cover", location: "Santa Ana",
+    letterId: "2026-10-05-operation-exterminate-remi-the-rat" },
+
+  { id: "2026-10-05-6", src: "photos/2026-10-05-6.jpg", date: "2026-10-05",
+    caption: "The most diverse meal ever", location: "Santa Ana",
+    letterId: "2026-10-05-operation-exterminate-remi-the-rat" },
+
   // ---- SANTA ANA! (Sep 27, 2026) ----
   { id: "2026-09-27-1", src: "photos/2026-09-27-1.jpg", date: "2026-09-27",
     caption: "Santa Ana", location: "Santa Ana",

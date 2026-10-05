@@ -6,6 +6,37 @@
 window.LETTERS = [
 
   {
+    id: "2026-10-05-operation-exterminate-remi-the-rat",
+    title: "Operation exterminate Remi the rat",
+    date: "2026-10-05",
+    location: "Santa Ana",
+    week: 9,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po! Week two here in the Santa Ana has been amazing. I had to travel back to Manila to the MTC though on Tuesday. They sent us here early and forgot to get our biometrics done, so we had to fly all the way back to get our finger prints taken. But the temporary stay in Manila was fun, we got to eat some McDonalds, see the Mall of Asia (but didn't get to go inside), and stay in a pretty nice hotel. We also got to go to the Manila Temple which was amazing! I also saw Elder Young there!!!" },
+      { type: "p", text: "After that was taken care of, we flew back to Tuguegarao and went back to our assigned areas." },
+      { type: "p", text: "I finally reached level 2 of the Philippines, im no longer having to deal with just cockroaches. i gotta deal with rats as well. So the next day when we woke up we noticed that something chewed through one of our emergency backpacks and was eating our emergency crackers. Then the next morning we found out it was a rat. My roommate opened the door into the closet room and there it was, chomping on some crackers, and then it scurried away behind my wardrobe. So we moved the wardrobe and it came running out, and my roommate tried hitting it with a broom while jumping and screaming. It then hid behind our stuff and we lost it. And as we were looking, I saw it on top of the window shades and then it jumped off and ran away somewhere, and now we have no idea where it is. So now we have a pet rat except he's not a pet and were trying to exterminate him." },
+      { type: "p", text: "On Thursday we had interviews, so we rode in this crammed bus for about an hour to Gonzaga and my comp and I wore some sick sock ties" },
+      { type: "p", text: "And after that, we rode in this like open tiny van sort of thing, I don't really know but it was cool, all the way back to Santa Anta. We then went and taught some lessons about the plan of salvation to this giant group of kids and we took a picture." },
+      { type: "p", text: "There's also a lot of frogs here in the Philippines and Ive accidentally killed so many because they like to jump in front of us when we bike. But one day im gonna catch one mid bike and its gonna be dope." },
+      { type: "p", text: "This pday we went to the beach and my roommate cooked pork on an electric ran cover" },
+      { type: "p", text: "It was really delicious. We then played some games on the beach and called our family's. After that we went to a birthday party and we had the most diverse meal ever" },
+      { type: "p", text: "There's spaghetti, rice, pizza, pork goop soup stuff, fish, pork carrot veggie mix, soy sauce dip, and a birthday cake. It was all very delicious. We also had some sprite. And for some reason everyone there knew my actual name and they kept calling me it and it was really weird." },
+      { type: "p", text: "Also there was a little miss communication, so you guys are able to join my actual photo album, so sorry about that. But here's the actual photo album that i update everyday ---->" },
+      { type: "p", text: "I'll end with a spiritual Scripture" },
+      { type: "scripture", ref: "Matthew 11:28–30", text: "28 ¶ Come unto me, all ye that labour and are heavy laden, and I will give you rest.\n\n29 Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.\n\n30 For my yoke is easy, and my burden is light." }
+    ],
+    spiritualThought: {
+      title: "Come unto me and I will give you rest",
+      intro: "I'll end with a spiritual Scripture.",
+      scriptureRef: "Matthew 11:28–30",
+      scripture: "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light."
+    },
+    tagalog: [],
+    photos: ["2026-10-05-1", "2026-10-05-2", "2026-10-05-3", "2026-10-05-4", "2026-10-05-5", "2026-10-05-6"]
+  },
+
+  {
     id: "2026-09-27-santa-ana",
     title: "SANTA ANA!",
     date: "2026-09-27",
