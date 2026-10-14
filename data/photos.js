@@ -9,6 +9,16 @@
 
 window.PHOTOS = [
 
+  // ---- Rain rain go away (Oct 12, 2026) ----
+  // No caption lines in this email; captions are taken from his own words next to each inline photo.
+  { id: "2026-10-12-1", src: "photos/2026-10-12-1.jpg", date: "2026-10-12",
+    caption: "Rice coffee — you can see the burnt rice at the bottom", location: "Santa Ana",
+    letterId: "2026-10-12-rain-rain-go-away" },
+
+  { id: "2026-10-12-2", src: "photos/2026-10-12-2.jpg", date: "2026-10-12",
+    caption: "This cool water buffalo skull tied to a tree", location: "Santa Ana",
+    letterId: "2026-10-12-rain-rain-go-away" },
+
   // ---- Operation exterminate Remi the rat (Oct 5, 2026) ----
   // No caption lines in this email; captions are taken from his own words next to each inline photo.
   { id: "2026-10-05-1", src: "photos/2026-10-05-1.jpg", date: "2026-10-05",

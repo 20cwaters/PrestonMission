@@ -6,6 +6,38 @@
 window.LETTERS = [
 
   {
+    id: "2026-10-12-rain-rain-go-away",
+    title: "Rain rain go away",
+    date: "2026-10-12",
+    location: "Santa Ana",
+    week: 10,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po kayo! Another week here in the Philies, and its been a challenging one. We started off the week with my comp getting a flat tire. So we had to do a lot of walking, which was okay until it started raining. And we still had about 2 miles to go. The bike shop was also always closed for some reason so it took awhile before we could get it fixed. After that, my comp got really sick, so we stayed inside so he can get some rest. he's doing better now so we've been able to get back to work. But it all made up in the end because we gotta watch conference this Sunday! And because the Philippines is a day ahead of America, we had to wait until next Sunday to watch it." },
+      { type: "p", text: "Ber month weather has officially started here in the Philies. Meaning its going to rain. A lot. The reason it's called ber month is because its SeptemBER, OctoBER, NovemBER, and DecemBER. And the rain just finally got here. Except its not just rain, its jump scare rain. It comes out of nowhere. Like we'll be biking and its a whopping 105 degrees with 90% humidity and the sun feels like the equivalent of a KFC deep fryer frying my skin. And then out of nowhere, I blink, and its pouring rain for half an hour, and then it goes back to blazing hot sun. And sometimes it'll be both, the sun is out toasting us, and its raining at the same time. The weather here has been very interesting." },
+      { type: "p", text: "We haven't seen the big, fat, chunky rat this week, but we saw its child. It was in our bathroom and it came running out and scurried under my roommates dresser. There's a video of it in the album if you wanna check it out" },
+      { type: "p", text: "And we haven't seen it since so hopefully it just like died somewhere not in our apartment. We also have this giant, fat, black wasp that made a nest under our table outside. And this is definitely thee biggest wasp I've seen in my life. So today we grabbed some of this like toxic bug killer juice and i sniped it while it was flying, I then proceed to drown its nest in the stuff. So hopefully it doesn't come back." },
+      { type: "p", text: "Not too many new interesting foods this week. I tried rice coffee which is just burnt rice mixed with milk and sugar, it taste like burnt toast. I kinda mess with it. And it don't go against the word of wisdom because its not really coffee at all, they just call it that for some reason" },
+      { type: "p", text: "This is what it looked like after I drank it all, you can see the burnt rice at the bottom. I also had some of this big chunk of meat and it was really crispy on the outside and there was a lof of big bones in it, I have no idea what it was but it tasted good. That same dinner I ate so much i felt like I was gonna explode, because the lady that fed us wouldn't let me stop eating. So I probably ate around 6 cups of rice and 3 whole chickens." },
+      { type: "p", text: "We went up to farthest north of the Philippines you could get, which was a brutal up hill bike up a mountain, and we then hiked down to this one family that lives in the straight jungle. I'm not even kidding it felt like Jumanji. They also had this cool water buffalo skull tied to a tree" },
+      { type: "p", text: "This thing was massive. One day im gonna ride a water buffalo and its gonna be dope." },
+      { type: "p", text: "I'm loving it here though in the Philippines. Tagalog is lowkey really hard and I still have no clue what's happening half the time but that's okay. I can now confidently start a lesson and share invitations in Tagalog so that's pretty cool. I also really like the word basta-basta, its hard to explain that one but it mean like not fully secure/on edge or like casual." },
+      { type: "p", text: "I just wanna end by sharing something I liked from conference, and its in the talk given by By Sister Tamara W. Runia during the Saturday morning session, and i really liked the part where she said," },
+      { type: "scripture", ref: "Sister Tamara W. Runia, general conference (Saturday morning session)", text: "So the gospel felt like a big umbrella I could hold over my head to keep the rain from falling on me. But I’ve learned from experience that we’re all going to get rained on. And sometimes we’re going to get pelted!\n\nThe gospel isn’t the umbrella; it’s the solid rock we’re standing on during the storm—that “sure foundation … whereon if men build they cannot fall.” (Helamen 5:12)" }
+    ],
+    spiritualThought: {
+      title: "The gospel is the solid rock we're standing on",
+      intro: "I just wanna end by sharing something I liked from conference.",
+      scriptureRef: "Sister Tamara W. Runia, general conference (quoting Helaman 5:12)",
+      scripture: "So the gospel felt like a big umbrella I could hold over my head to keep the rain from falling on me. But I’ve learned from experience that we’re all going to get rained on. And sometimes we’re going to get pelted! The gospel isn’t the umbrella; it’s the solid rock we’re standing on during the storm—that “sure foundation … whereon if men build they cannot fall.”"
+    },
+    tagalog: [
+      { word: "Basta-basta", meaning: "Not fully secure/on edge or like casual" }
+    ],
+    photos: ["2026-10-12-1", "2026-10-12-2"]
+  },
+
+  {
     id: "2026-10-05-operation-exterminate-remi-the-rat",
     title: "Operation exterminate Remi the rat",
     date: "2026-10-05",
