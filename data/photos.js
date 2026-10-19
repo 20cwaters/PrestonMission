@@ -9,6 +9,28 @@
 
 window.PHOTOS = [
 
+  // ---- Scary Nanay (Oct 19, 2026) ----
+  // No caption lines in this email; captions are taken from his own words next to each inline photo.
+  { id: "2026-10-19-1", src: "photos/2026-10-19-1.jpg", date: "2026-10-19",
+    caption: "Physics notes on some random window cover", location: "Baua",
+    letterId: "2026-10-19-scary-nanay" },
+
+  { id: "2026-10-19-2", src: "photos/2026-10-19-2.jpg", date: "2026-10-19",
+    caption: "Chemistry notes on some random window cover", location: "Baua",
+    letterId: "2026-10-19-scary-nanay" },
+
+  { id: "2026-10-19-3", src: "photos/2026-10-19-3.jpg", date: "2026-10-19",
+    caption: "We suprised him with cake and ice cream at a members house", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+
+  { id: "2026-10-19-4", src: "photos/2026-10-19-4.jpg", date: "2026-10-19",
+    caption: "I also taught a water buffalo and introduced him to Ang Aklat ni Mormom", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+
+  { id: "2026-10-19-5", src: "photos/2026-10-19-5.jpg", date: "2026-10-19",
+    caption: "Me and my comp with a family", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+
   // ---- Rain rain go away (Oct 12, 2026) ----
   // No caption lines in this email; captions are taken from his own words next to each inline photo.
   { id: "2026-10-12-1", src: "photos/2026-10-12-1.jpg", date: "2026-10-12",

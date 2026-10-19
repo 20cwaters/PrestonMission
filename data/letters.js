@@ -6,6 +6,35 @@
 window.LETTERS = [
 
   {
+    id: "2026-10-19-scary-nanay",
+    title: "Scary Nanay",
+    date: "2026-10-19",
+    location: "Santa Ana",
+    week: 11,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po! Another week here in the Philies. A lot happened this week so its been exciting. This Tuesday i went on my first exchange with Elder Young (not porter) in Baua. And during a lesson with an RC who is an old nanay ive never met before, I asked her who she wants to pray, and before I could finish, she stares at me dead in the eyes and goes \"YYYOOOUUU!!\" It lowkey jump scared me. So i said the prayer and after, she said something along the lines of, \"even i can say a better prayer than that\". Haha she was funny. She was saying all these funny jokes and making fun of me and elder young. Mainly me tho because my Tagalog isnt too good yet. We also saw these physics and chemistry notes on some random window cover" },
+      { type: "p", text: "Lowkey better notes than Mr Johnson. Haha jokelang." },
+      { type: "p", text: "On Wednesday was my comps birthday, and he turned 25. We suprised him with cake and ice cream at a members house." },
+      { type: "p", text: "We also had a bunch of masarap food, played some games, and taught a lesson." },
+      { type: "p", text: "On Thursday was my first zone conference and that was a lot of fun. I was able to see a lot of my batch mates and catch up with them. We had some great lessons from the mission president and the APs. Then we drove in a crammed van for like 2 hours with around 16 missionaries in it. I also taught a water buffalo and introduced him to Ang Aklat ni Mormom and we got him a baptismal date so that was littttt" },
+      { type: "p", text: "On Saturday we invited everyone to church so I think we biked around 30 miles that day and we were going super fast. My legs are so sore, when I woke up the next day I almost fell off my bunk bed trying to get down cuz my legs hurt so bad. We also biked up that mountain again, but i guess I should say walk because it was so steep we gave up trying to bike. But when we got back, the rat returned to our apartment😭. My comp walked into the bathroom and then a minute later I heard glass shatter, so I walked over to ask what happened, and then the fat rat comes running out of the bathroom squirming everywhere. And then my comp, who was in the bathroom with the rat, just calmly says, \"oh hey watch out there's a rat\" as im freaking out cuz this rat is squirming everywhere around me. It then ran into our cupboards under the sink and disappeared. I have no idea how it vanished but it did. And then my comp walked out and told me it was climbing the WALL when he walked in and it bumped our tiny mirror haning on our wall and shattered it and then ran out." },
+      { type: "p", text: "On sunday we were able to invite 3 more people to be baptized which is really exciting. One of them we just met on Friday, but he was so invested in the Gospel and we can just tell he was ready. We set a date for all of them on November 8th. Some of their friends are also being baptized that same day so it worked out perfectly because now they can all get baptized together on the same day." },
+      { type: "p", text: "Well that's all for this week! Ingat kayo at mahal ko at namimiss ko kayong lahat!" },
+      { type: "p", text: "I'll end with sharing this verse from The Book of Mormon" },
+      { type: "scripture", ref: "Mosiah 2:41", text: "41 And moreover, I would desire that ye should consider on the blessed and happy state of those that keep the commandments of God. For behold, they are blessed in all things, both temporal and spiritual; and if they hold out faithful to the end they are received into heaven, that thereby they may dwell with God in a state of never-ending happiness. O remember, remember that these things are true; for the Lord God hath spoken it." }
+    ],
+    spiritualThought: {
+      title: "The blessed and happy state of those that keep the commandments",
+      intro: "I'll end with sharing this verse from The Book of Mormon.",
+      scriptureRef: "Mosiah 2:41",
+      scripture: "And moreover, I would desire that ye should consider on the blessed and happy state of those that keep the commandments of God. For behold, they are blessed in all things, both temporal and spiritual; and if they hold out faithful to the end they are received into heaven, that thereby they may dwell with God in a state of never-ending happiness. O remember, remember that these things are true; for the Lord God hath spoken it."
+    },
+    tagalog: [],
+    photos: ["2026-10-19-1", "2026-10-19-2", "2026-10-19-3", "2026-10-19-4", "2026-10-19-5"]
+  },
+
+  {
     id: "2026-10-12-rain-rain-go-away",
     title: "Rain rain go away",
     date: "2026-10-12",
