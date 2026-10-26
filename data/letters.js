@@ -6,6 +6,40 @@
 window.LETTERS = [
 
   {
+    id: "2026-10-26-lightning-rabies-and-rats",
+    title: "Lightning, rabies, and rats",
+    date: "2026-10-26",
+    location: "Santa Ana",
+    week: 12,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po! Grrrrraaabi its been a wild week. We had our first storm for the season and I thought my comp and i were gonna pass away. At first it was just super windy and rainy. But the power lines here are very sketchy. So they were swinging everywhere and I actually thought one was gonna fall on us. Then while we were biking, it was dark and super windy, and all of sudden we got flash banged and there was this really loud pop. And the power line right in front of us exploded and sparks flew everywhere. It was really cool but also absolutely terrifying." },
+      { type: "p", text: "That same day we had to go to the hospital so my comp could get a rabies shot. Haha he got bit by dog. It was a very minor bite, it was just a tiny little scratch on his calf, and it didn't even bleed. He got bit while we were on exchanges though so i wasn't there when it happened. Apparently he was just biking and a dog ran up and bit him. Another one tried to bite him again on our way to the hospital too. Ayaw na niya sa mga aso." },
+      { type: "p", text: "We biked past this really cool lookin castle" },
+      { type: "p", text: "and we saw some people hanging out by it so we decided to go check it out and see if we can share a message with them. Turns out they were all INC (iglesia ni cristo). But they let us look around and we found this goofy ah mask" },
+      { type: "p", text: "No one knew why the castle was there but we think it was a hotel that someone tried to build, but didn't finish it, and then just abandoned it. It was so sketch though, there was a bunch of creepy statues and abandoned props." },
+      { type: "p", text: "Remy the Rat update🐀🍳:" },
+      { type: "p", text: "Luckily it's been a week since we've seen him. On Monday though he was in our storage room and we tried to catch him but failed, and we havent seen him since. That night though he tried to steal my comps eggs and make us omelets like the actual Remy the rat did. He somehow climbed up into our cabinet and then chewed the cardboard around one of his eggs, and pulled it out" },
+      { type: "p", text: "It's been a week now since we've seen him so hopefully he just left or something." },
+      { type: "p", text: "This pday was really fun. We went to white sand beach, and cooked a lot of food" },
+      { type: "p", text: "I didn't know what any of it was exactly but I ate it anyway and it was really good. I know one of the dishes was pork that's been cooked with baby shrimp. That tasted very interesting. There was a piece of pork that still had the pigs nipple on it." },
+      { type: "p", text: "The beach there was also super peaceful and maganda" },
+      { type: "p", text: "And me and my kasama had a photo shoot with this really nice camera that a member had. They're in the photo album if you wanna check them out" },
+      { type: "p", text: "It's been great here in the Philippines and i grow to love it here more and more everyday. Tagalog is still Tagalog, very difficult. But its definitely been getting a lot easier and I can understand and speak pretty comfortably now. I also figured out how to turn adjectives into nouns and it felt like leveling up or something like that, like I felt so powerful in the language. I wanna end with this scripture my comp shared with me" },
+      { type: "scripture", ref: "Doctrine and Covenants 59:18", text: "18 Yea, all things which come of the earth, in the season thereof, are made for the benefit and the use of man, both to please the eye and to gladden the heart;" },
+      { type: "p", text: "Ingat po kayo!" }
+    ],
+    spiritualThought: {
+      title: "To please the eye and to gladden the heart",
+      intro: "I wanna end with this scripture my comp shared with me.",
+      scriptureRef: "Doctrine and Covenants 59:18",
+      scripture: "Yea, all things which come of the earth, in the season thereof, are made for the benefit and the use of man, both to please the eye and to gladden the heart;"
+    },
+    tagalog: [],
+    photos: ["2026-10-26-1", "2026-10-26-2", "2026-10-26-3", "2026-10-26-4", "2026-10-26-5", "2026-10-26-6", "2026-10-26-7", "2026-10-26-8", "2026-10-26-9"]
+  },
+
+  {
     id: "2026-10-19-scary-nanay",
     title: "Scary Nanay",
     date: "2026-10-19",

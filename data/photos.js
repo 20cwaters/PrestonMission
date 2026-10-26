@@ -9,6 +9,45 @@
 
 window.PHOTOS = [
 
+  // ---- Lightning, rabies, and rats (Oct 26, 2026) ----
+  // No caption lines in this email; captions are taken from his own words next to each inline photo.
+  // The two sunset shots (8, 9) aren't mentioned in the text, so their captions are plain descriptions.
+  { id: "2026-10-26-1", src: "photos/2026-10-26-1.jpg", date: "2026-10-26",
+    caption: "We biked past this really cool lookin castle", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-2", src: "photos/2026-10-26-2.jpg", date: "2026-10-26",
+    caption: "We found this goofy ah mask", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-3", src: "photos/2026-10-26-3.jpg", date: "2026-10-26",
+    caption: "He somehow climbed up into our cabinet and then chewed the cardboard around one of his eggs, and pulled it out", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-4", src: "photos/2026-10-26-4.jpg", date: "2026-10-26",
+    caption: "The chewed cardboard around my comps eggs", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-5", src: "photos/2026-10-26-5.jpg", date: "2026-10-26",
+    caption: "We went to white sand beach, and cooked a lot of food", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-6", src: "photos/2026-10-26-6.jpg", date: "2026-10-26",
+    caption: "The beach there was also super peaceful and maganda", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-7", src: "photos/2026-10-26-7.jpg", date: "2026-10-26",
+    caption: "White sand beach", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-8", src: "photos/2026-10-26-8.jpg", date: "2026-10-26",
+    caption: "Sunset over the water", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
+  { id: "2026-10-26-9", src: "photos/2026-10-26-9.jpg", date: "2026-10-26",
+    caption: "Boats at dusk", location: "Santa Ana",
+    letterId: "2026-10-26-lightning-rabies-and-rats" },
+
   // ---- Scary Nanay (Oct 19, 2026) ----
   // No caption lines in this email; captions are taken from his own words next to each inline photo.
   { id: "2026-10-19-1", src: "photos/2026-10-19-1.jpg", date: "2026-10-19",
