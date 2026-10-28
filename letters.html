@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Letters — Elder Preston Waters</title>
 <meta name="description" content="Every weekly email from Elder Preston Waters, from the Provo MTC to the Philippines.">
+<meta name="theme-color" content="#0b2437">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className+=" js-motion";setTimeout(function(){if(!window.MOTION)document.documentElement.classList.remove("js-motion");},2500);</script>
+
 </head>
 <body>
 
@@ -44,18 +47,18 @@
 <script src="assets/js/site.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  var esc = MW.esc, all = MW.LETTERS;
+  var esc = MW.esc, all = MW.ENTRIES || MW.LETTERS;
   var host = document.querySelector("[data-letters]");
   var search = document.querySelector("[data-search]");
   var filter = document.querySelector("[data-filter]");
 
   document.querySelector("[data-intro]").textContent =
-    all.length + " letter" + (all.length === 1 ? "" : "s") + " so far, starting " +
-    MW.fmtDate(all.length ? all[all.length - 1].date : MW.M.dates.mtcStart) +
+    MW.LETTERS.length + " letter" + (MW.LETTERS.length === 1 ? "" : "s") + " so far, starting " +
+    MW.fmtDate(MW.LETTERS.length ? MW.LETTERS[MW.LETTERS.length - 1].date : MW.M.dates.mtcStart) +
     ". Newest first — use the search to find that one story you half remember.";
 
   var locations = [];
-  all.forEach(function (l) { if (locations.indexOf(l.location) === -1) locations.push(l.location); });
+  all.forEach(function (l) { if (l.location && locations.indexOf(l.location) === -1) locations.push(l.location); });
   locations.forEach(function (loc) {
     var o = document.createElement("option");
     o.value = loc; o.textContent = loc;
@@ -64,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function letterHtml(l) {
     var pics = MW.photosFor(l.id);
-    return '<article class="letter-full" id="' + esc(l.id) + '">' +
+    return '<article class="letter-full reveal" id="' + esc(l.id) + '">' +
       MW.letterMeta(l) +
       '<h2 style="font-size:clamp(1.6rem,3.4vw,2.25rem)">' + esc(l.title) + '</h2>' +
       '<div class="letter-full__body">' + MW.letterBodyHtml(l) + '</div>' +
@@ -117,5 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+<script src="assets/js/motion.js"></script>
 </body>
 </html>

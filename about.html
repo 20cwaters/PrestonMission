@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About & Write Him — Elder Preston Waters</title>
 <meta name="description" content="About Elder Preston Waters, his mission in the Philippines, the Tagalog he is learning, and how to send him a message.">
+<meta name="theme-color" content="#0b2437">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className+=" js-motion";setTimeout(function(){if(!window.MOTION)document.documentElement.classList.remove("js-motion");},2500);</script>
+
 </head>
 <body>
 
@@ -74,7 +77,7 @@
     <p class="lede" style="max-width:60ch;margin-bottom:28px">
       Every word on this list came out of one of his emails. It grows each week.
     </p>
-    <div class="word-list" data-words style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));display:grid"></div>
+    <div class="word-list word-list--boxed" data-words style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));display:grid"></div>
   </div>
 </section>
 
@@ -142,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (M.missionary.homeWard) facts.splice(4, 0, { k: "Home ward", v: M.missionary.homeWard });
 
   document.querySelector("[data-facts]").innerHTML = facts.map(function (f) {
-    return '<div class="card" style="padding:22px 24px">' +
+    return '<div class="card reveal" style="padding:22px 24px">' +
       '<div class="stat__label" style="margin:0 0 8px">' + esc(f.k) + '</div>' +
       '<div style="font-family:var(--serif);font-size:1.12rem;color:var(--navy-deep);line-height:1.35">' +
       esc(f.v) + '</div></div>';
@@ -175,5 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
     Math.round(st.percent) + "% of the way through.";
 });
 </script>
+<script src="assets/js/motion.js"></script>
 </body>
 </html>

@@ -15,3 +15,13 @@ node_modules/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# /brag video output. The weekly automation runs `git add -A`, so without this
+# it would sweep 6 MB of render artifacts into the public repo on Wednesday.
+# Delete this line if you want the video versioned.
+brag-output/
+brag-ad/
+
+# Raw emails saved by Mission Control. They contain private addresses and must
+# never be committed — the weekly run uses `git add -A`.
+automation/incoming/

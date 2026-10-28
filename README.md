@@ -3,6 +3,10 @@
 A plain static website. No build step, no server, no dependencies to install. Open
 `index.html` in a browser and it works.
 
+> **Looking for the full picture?** [HOW-IT-WORKS.md](HOW-IT-WORKS.md) documents every page,
+> the data schemas, the weekly automation, the photo pipeline, deployment and troubleshooting.
+> This README is the quick how-to.
+
 ---
 
 ## Weekly routine — the automatic way

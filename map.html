@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Where He Is — Elder Preston Waters</title>
 <meta name="description" content="A satellite map and street view of every area Elder Preston Waters has served in, plus his transfer timeline.">
+<meta name="theme-color" content="#0b2437">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className+=" js-motion";setTimeout(function(){if(!window.MOTION)document.documentElement.classList.remove("js-motion");},2500);</script>
+
 </head>
 <body>
 
@@ -23,9 +26,9 @@
 </section>
 
 <section class="wrap">
-  <div class="area-tabs" data-area-tabs></div>
+  <div class="area-tabs reveal" data-area-tabs></div>
 
-  <div class="map-shell">
+  <div class="map-shell reveal">
     <div class="map-pane">
       <div class="map-pane__label">Satellite</div>
       <div id="map"></div>
@@ -48,11 +51,11 @@
     <div class="grid grid-2" style="align-items:start">
       <div>
         <h2>Current assignment</h2>
-        <div class="card" data-current></div>
+        <div class="card reveal" data-current></div>
       </div>
       <div>
         <h2>Transfer timeline</h2>
-        <div class="timeline" data-timeline></div>
+        <div class="timeline reveal" data-timeline></div>
       </div>
     </div>
   </div>
@@ -346,5 +349,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.head.appendChild(s);
 });
 </script>
+<script src="assets/js/motion.js"></script>
 </body>
 </html>

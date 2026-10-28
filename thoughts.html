@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Spiritual Thoughts — Elder Preston Waters</title>
 <meta name="description" content="The spiritual thoughts and scriptures Elder Preston Waters shares in his weekly emails, collected in one place.">
+<meta name="theme-color" content="#0b2437">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className+=" js-motion";setTimeout(function(){if(!window.MOTION)document.documentElement.classList.remove("js-motion");},2500);</script>
+
 </head>
 <body>
 
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     host.innerHTML = items.map(function (l) {
       var t = l.spiritualThought;
-      return '<article class="thought-card">' +
+      return '<article class="thought-card reveal">' +
         '<div class="letter-card__meta" style="margin-bottom:14px">' +
           '<span class="pill">Week ' + esc(l.week) + '</span>' +
           '<span>' + MW.fmtDate(l.date) + '</span>' +
@@ -82,5 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
     : '<p class="muted">Scripture references will collect here as he shares them.</p>';
 });
 </script>
+<script src="assets/js/motion.js"></script>
 </body>
 </html>
