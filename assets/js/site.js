@@ -7,9 +7,13 @@
   "use strict";
 
   var M = window.MISSION;
-  var LETTERS = (window.LETTERS || []).slice().sort(function (a, b) {
+  // Every entry in letters.js, including "From the family" posts (kind: "family").
+  // LETTERS is the missionary's own letters only: counts, "latest letter",
+  // week numbers and spiritual thoughts all come from those.
+  var ENTRIES = (window.LETTERS || []).slice().sort(function (a, b) {
     return b.date.localeCompare(a.date);
   });
+  var LETTERS = ENTRIES.filter(function (l) { return l.kind !== "family"; });
   var PHOTOS = (window.PHOTOS || []).slice().sort(function (a, b) {
     return b.date.localeCompare(a.date);
   });
@@ -177,13 +181,19 @@
   function excerpt(letter, n) {
     var first = "";
     for (var i = 0; i < letter.body.length; i++) {
-      if (letter.body[i].type === "p") { first = letter.body[i].text; break; }
+      if (letter.body[i].type === "p" || (letter.kind === "family" && letter.body[i].text)) { first = letter.body[i].text; break; }
     }
     n = n || 190;
     return first.length > n ? first.slice(0, n).replace(/\s+\S*$/, "") + "…" : first;
   }
 
   function letterMeta(l) {
+    if (l.kind === "family") {
+      return '<div class="letter-card__meta">' +
+        '<span class="pill pill--family">From the family</span>' +
+        '<span>' + fmtDate(l.date) + '</span>' +
+        '</div>';
+    }
     return '<div class="letter-card__meta">' +
       '<span class="pill">Week ' + esc(l.week) + '</span>' +
       '<span>' + fmtDate(l.date) + '</span>' +
@@ -201,6 +211,7 @@
 
   function letterBodyHtml(l) {
     return l.body.map(function (b) {
+      if (b.type === "family") return familyBlockHtml(b);
       if (b.type === "scripture") {
         return '<blockquote class="scripture">' +
           b.text.split(/\n\s*\n/).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("") +
@@ -209,6 +220,22 @@
       }
       return '<p>' + esc(b.text) + '</p>';
     }).join("");
+  }
+
+  /* ---------------- from the family ---------------- */
+
+  // Anything a relative shares is always labelled, so it can never be
+  // mistaken for the missionary's own words.
+  function sharedByLabel(s) {
+    var first = String((s && s.name) || "").trim().split(/\s+/)[0] || "Family";
+    return "Shared by " + first + (s && s.relationship ? ", " + s.relationship : "");
+  }
+
+  function familyBlockHtml(b) {
+    return '<aside class="family-note">' +
+      '<p class="family-note__label">From the family &middot; ' + esc(sharedByLabel(b)) + '</p>' +
+      String(b.text || "").split(/\n\s*\n/).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("") +
+      '</aside>';
   }
 
   /* ---------------- photos ---------------- */
@@ -234,6 +261,7 @@
         '<strong>' + esc(p.caption) + '</strong>' +
         '<code>' + esc(p.src.replace("photos/", "")) + '</code>' +
       '</span>' +
+      (p.sharedBy ? '<span class="photo__shared">' + esc(sharedByLabel(p.sharedBy)) + '</span>' : '') +
       '<span class="photo__cap">' + esc(p.caption) + '</span>' +
       '</button>';
   }
@@ -301,7 +329,8 @@
     img.src = p.src;
     img.alt = p.caption;
     lb.querySelector(".lightbox__cap").innerHTML =
-      esc(p.caption) + '<span>' + fmtDate(p.date) + (p.location ? ' &middot; ' + esc(p.location) : '') + '</span>';
+      esc(p.caption) + '<span>' + fmtDate(p.date) + (p.location ? ' &middot; ' + esc(p.location) : '') + '</span>' +
+      (p.sharedBy ? '<span class="lightbox__shared">' + esc(sharedByLabel(p.sharedBy)) + '</span>' : '');
   }
 
   function openLightbox(list, i) {
@@ -333,11 +362,11 @@
   /* ---------------- expose ---------------- */
 
   window.MW = {
-    M: M, LETTERS: LETTERS, PHOTOS: PHOTOS,
+    M: M, LETTERS: LETTERS, ENTRIES: ENTRIES, PHOTOS: PHOTOS,
     d: d, today: today, days: days, fmtDate: fmtDate, esc: esc, plural: plural,
     status: status, excerpt: excerpt, letterCard: letterCard, letterMeta: letterMeta,
     letterBodyHtml: letterBodyHtml, photosFor: photosFor, renderPhotoGrid: renderPhotoGrid,
-    openLightbox: openLightbox, allTagalog: allTagalog
+    openLightbox: openLightbox, allTagalog: allTagalog, sharedByLabel: sharedByLabel
   };
 
   document.addEventListener("DOMContentLoaded", renderChrome);

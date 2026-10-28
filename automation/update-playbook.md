@@ -30,15 +30,18 @@ Project root: `C:\Users\Casey Waters\Documents\PrestonMission`
 Read `data/letters.js` and collect every existing `id` and `date`. Read `data/mission.js` for
 `dates.mtcStart`, the `areas` list, and which area currently has `current: true`.
 
-## 2. Fetch new email
+## 2. Read the new email
 
-Search Gmail: `from:preston.waters@missionary.org newer_than:30d`
+Mission Control checks Gmail and saves each new email from the missionary before starting this
+run. **Do not search Gmail yourself.** The prompt names the file:
 
-For each thread newer than the most recent letter on the site, fetch it with
-`get_thread` using `messageFormat: "PLAIN_TEXT"`.
+- `automation/incoming/<date>-<gmail id>.md` — the subject, the send time in UTC *and* already
+  converted to the local date, the list of attachments, and the plain-text body
+- `automation/incoming/<date>-<gmail id>.eml` — the raw message, only if you need it
+- Its image attachments are already in `photos/_inbox/` (zips already unpacked)
 
-Skip anything whose subject + date already matches an existing letter. Process oldest first if
-several are new.
+If the email's subject and date already match a letter on the site, change nothing and report
+`RESULT: no-new-email`.
 
 ## 3. Pull the letter apart
 
@@ -111,24 +114,13 @@ switches the site from "Week N at the MTC" to the six-week transfer counter, so 
 
 ## 6. Photos
 
-The Gmail connector cannot read attachment bytes, so the images have to come from somewhere else.
-Check both sources, local first:
+Mission Control saves the email's image attachments into `photos/_inbox/` before this run starts
+(prefixed with the send date), and Casey can drop extra pictures there from the dashboard.
 
-**Source A — the local inbox (preferred).** Look in `photos/_inbox/`.
-- If there is a `.zip` (Gmail's "Download all attachments"), unzip it in place.
+**The inbox.** Look in `photos/_inbox/`.
+- If there is a `.zip`, unzip it in place.
 - Collect every `.jpg` / `.jpeg` / `.png` / `.heic` in the folder, ignoring `README.txt` and the
   `_filed/` subfolder.
-
-**Source B — Google Drive.** If the local inbox is empty, look for a Drive folder named
-`Preston Mission Photos`:
-```
-mimeType = 'application/vnd.google-apps.folder' and title = 'Preston Mission Photos'
-```
-Then list images inside it that were added since the previous letter's date:
-```
-parentId = '<folderId>' and mimeType contains 'image/' and createdTime > '<previous letter date>T00:00:00Z'
-```
-Download each with `download_file_content` (returns base64) and decode it to bytes.
 
 ### Matching photos to captions
 
@@ -170,7 +162,7 @@ re-run, and skips anything already done. Typical saving is about 90%.
 Report the before/after totals it prints. If it fails, say so and do not commit the giant
 originals — a few unoptimized megabytes in git are permanent.
 
-**If neither source has anything**, leave the placeholders. The site renders a labelled tile
+**If the inbox is empty**, leave the placeholders. The site renders a labelled tile
 naming the file it's waiting for, so nothing looks broken. List the needed filenames in the report.
 
 ## 7. Check your work
@@ -211,12 +203,24 @@ Notes:
 
 ## 9. Report
 
-Write a short summary covering:
-- Which letter was added (title and date), or that there was no new email
-- Any Tagalog words added
-- **Any change made to `mission.js`, stated plainly** — new companion, new area, dates set
-- Anything you were unsure about and deliberately left alone, so Casey can decide
-- Which photo files still need saving, if any
-- Whether the push succeeded, so Casey knows the live site is updated
+Mission Control reads this report, so end your run with it in exactly this shape:
 
-Keep it to a few lines. If nothing needed attention, say so in one sentence.
+```
+## Report
+RESULT: added | no-new-email | failed
+LETTER: <title> (<date>)        — or: none
+
+- Tagalog/language words added: ...
+- mission.js changes: ...      (state every change plainly, or "none")
+- Photos: which were filed and how they were matched; optimizer before/after
+- Photos still needed: ...      (or "none")
+- Push: succeeded / failed (and why)
+
+### Left alone
+- <each thing you saw but deliberately did not change, so Casey can decide>
+- (write "- None" if there was nothing)
+```
+
+Anything listed under **Left alone** flags the run for Casey's review in the dashboard, so put
+every ambiguous fact there — and only there. Leave entries with `type: "family"`, `kind: "family"`
+or a `sharedBy` alone: those were added by family through Mission Control.
