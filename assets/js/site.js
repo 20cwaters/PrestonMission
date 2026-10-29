@@ -169,11 +169,22 @@
             '</div>' +
           '</div>' +
           '<div class="footer-bottom">' +
-            '<span>Made by his family so nobody misses a week.</span>' +
+            '<span>Made by ' + esc("Casey Waters") + ' &middot; <a href="' + esc(inquiryHref()) + '">Want one for your missionary?</a></span>' +
             '<span>Last updated ' + fmtDate(LETTERS.length ? LETTERS[0].date : M.dates.mtcStart, "short") + '</span>' +
           '</div>' +
         '</div>';
     }
+  }
+
+  // "Want one for your missionary?" An email to Casey Waters, already filled in.
+  // It goes to a +hello address that Mission Control leaves in the inbox.
+  function inquiryHref() {
+    var body = "Hi Casey,\r\n\r\nI saw the mission website for " + M.missionary.fullName +
+      " and I'd love one for my missionary.\r\n\r\nMissionary's name:\r\nMission:\r\n" +
+      "Left (or leaving) on:\r\nBest way to reach me:\r\n\r\nThanks!";
+    return "mailto:" + "caseymissionsites+hello@gmail.com" +
+      "?subject=" + encodeURIComponent("A mission website for my missionary") +
+      "&body=" + encodeURIComponent(body);
   }
 
   /* ---------------- letters ---------------- */
