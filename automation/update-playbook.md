@@ -3,7 +3,7 @@
 This is the source of truth for the weekly automation. The scheduled task reads this file and
 follows it. You can also run it by hand any time — just say "run the mission site update playbook."
 
-Project root: `C:\Users\Casey Waters\Documents\PrestonMission`
+Project root: `D:\MissionSites\PrestonMission`
 
 ---
 
@@ -111,6 +111,22 @@ switches the site from "Week N at the MTC" to the six-week transfer counter, so 
 
 **Other facts worth capturing** when he mentions them: the mission president's name
 (`mission.presidentName`), the mission office address (`mission.officeAddress`), or his ward.
+
+### Past letters
+
+For a site set up partway through a mission, Mission Control imports the missionary's earlier
+emails in one batch, oldest first. The prompt then says it is a past letter. Handle it exactly like
+a new one (letter, photos, publish, report), with one difference:
+
+- Before applying any change to `data/mission.js` (companion, transfer, dates), check whether
+  `data/letters.js` already has a letter dated **after** this one. If it does, this letter arrived
+  out of order: do **not** change `mission.js`. Instead, list each change you would have made under
+  **Left alone**, starting with "From an older letter:", so Casey can decide.
+- When this letter is the newest on the site, which is the normal case for an oldest-first import,
+  apply the changes as usual. That is how the areas, companions and dates build up in the order
+  they happened.
+- `photos/_inbox/` holds only this letter's attachments: Mission Control stages each letter's
+  photos separately.
 
 ## 6. Photos
 

@@ -21,7 +21,18 @@ Desktop.ini
 # Delete this line if you want the video versioned.
 brag-output/
 brag-ad/
+brag-ad-v2/
 
 # Raw emails saved by Mission Control. They contain private addresses and must
 # never be committed — the weekly run uses `git add -A`.
 automation/incoming/
+
+# Photos waiting in the inbox are unoptimised originals (possibly with GPS).
+# Filed copies live in photos/; anything the playbook couldn't match stays out
+# of the public repo instead of being swept in by `git add -A`.
+photos/_inbox/*
+!photos/_inbox/README.txt
+
+# Mission Control's notes for Claude Code sessions in this folder (local only)
+CLAUDE.md
+SETUP-REPORT.md
