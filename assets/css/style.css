@@ -942,3 +942,7 @@ blockquote.scripture cite {
   body { background: #fff; }
   .js-motion .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* Under the maps: the pins are only somewhere in the area. */
+.map-note { font-size: .87rem; margin: 14px 0 0; color: var(--ink-soft); }
+.map-note strong { color: var(--ink); }
