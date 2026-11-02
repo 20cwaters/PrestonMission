@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         heading = g.key;
         sub = g.items.length + (g.items.length === 1 ? " photo" : " photos");
       } else {
-        heading = MW.fmtDate(g.key);
+        heading = g.key ? MW.fmtDate(g.key) : "More photos";
         sub = letterTitle(g.items[0].letterId);
       }
       return '<div class="reveal" style="margin-bottom:46px">' +

@@ -112,6 +112,14 @@ switches the site from "Week N at the MTC" to the six-week transfer counter, so 
 **Other facts worth capturing** when he mentions them: the mission president's name
 (`mission.presidentName`), the mission office address (`mission.officeAddress`), or his ward.
 
+A **new mission president** (they change around July 1) also needs `mission.president`, which
+the About page shows: set `names` (the same as `presidentName`) and `since`, web search for the
+couple's introduction in Church News, and rewrite `bio` as two short paragraphs in your own words
+(where they came from, children, where each served and was born, a few callings; never their
+parents' names) with `source: { label: "Church News", url }`. Set `photo` to `""` unless the
+photo is of the new couple. If you can't find the introduction, set `bio: []` and list it under
+Left alone.
+
 ### Past letters
 
 For a site set up partway through a mission, Mission Control imports the missionary's earlier

@@ -946,3 +946,21 @@ blockquote.scripture cite {
 /* Under the maps: the pins are only somewhere in the area. */
 .map-note { font-size: .87rem; margin: 14px 0 0; color: var(--ink-soft); }
 .map-note strong { color: var(--ink); }
+
+/* Mission president (About page) and mission boundary picture (map page). */
+.president { display: grid; grid-template-columns: 170px 1fr; gap: 28px; align-items: start; margin-top: 1.2em; }
+.president--nophoto { grid-template-columns: 1fr; }
+.president__photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-sm); }
+.president h3 { margin: 0 0 .25em; }
+.president__since { color: var(--ink-soft); font-size: .93rem; margin-bottom: 1.1em; }
+.president__source { color: var(--ink-soft); font-size: .86rem; }
+@media (max-width: 640px) {
+  .president { grid-template-columns: 1fr; }
+  .president__photo { max-width: 220px; }
+}
+.boundary-map { margin: 1.4em 0 0; }
+.boundary-map img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); border: 1px solid var(--line); }
+.boundary-map figcaption { color: var(--ink-soft); font-size: .87rem; margin-top: 10px; }
+
+/* A photo nobody captioned shows no caption bar. */
+.photo__cap:empty, .photo__ph strong:empty { display: none; }
