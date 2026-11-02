@@ -23,7 +23,19 @@ window.MISSION = {
     country: "Philippines",
     language: "Tagalog",
     languageNative: "Tagalog / Filipino",
-    presidentName: "",                       // TODO: "President & Sister ____"
+    presidentName: "President Steven Packer and Sister Elizabeth Packer",
+    // The About page's "mission president" section. bio is in our own words from
+    // the source; the section stays hidden while names or bio are empty.
+    president: {
+      names: "President Steven Packer and Sister Elizabeth Packer",
+      since: "2024-07-01",                   // the mission was created that day; they are its first leaders
+      photo: "",                             // optional: a photo of them, e.g. one he sends
+      bio: [
+        "President and Sister Packer came to the Philippines from the Chubbuck 5th Ward in Chubbuck, Idaho, and they have five children. They are the first leaders of the Tuguegarao mission, which was created in July 2024.",
+        "President Packer was born in Logan, Utah, and served his own mission in Peru, in the Lima East Mission. He has been a stake president, a bishop and a counselor in a mission presidency. Sister Packer was born in Ogden, Utah. She was serving as a Church service missionary when they were called, and she has been a ward Young Women president and a stake temple and family history consultant."
+      ],
+      source: { label: "Church News", url: "https://www.thechurchnews.com/callings/2024/1/12/24030853/16-new-mission-presidents-and-companions-cambodia-colombia-england-saratoga-springs/" }
+    },
     officeAddress: [                         // TODO: confirm from the mission office
       "Philippines Tuguegarao Mission",
       "Tuguegarao City, Cagayan",
@@ -119,7 +131,7 @@ window.MISSION = {
       lat: 18.45,
       lng: 122.15,
       zoom: 15,
-      companion: "Elder Witehira",
+      companion: "Elder Randall",            // since transfers in the 2026-11-01 letter; his trainer here before that was Elder Witehira
       note: "His first real area and trainer. Mountains right next to the ocean, and church meets in an old casino.",
       current: true
     }

@@ -9,6 +9,12 @@
 
 window.PHOTOS = [
 
+  // ---- Sakit and transfers. Paalam po Elder Witehira🫡 (Nov 1, 2026) ----
+  // No caption lines in this email; the caption is taken from his own words next to the photo.
+  { id: "2026-11-01-1", src: "photos/2026-11-01-1.jpg", date: "2026-11-01",
+    caption: "I got the pork Sisig, I think is what its called, and ooooooo weeeee was it good", location: "Santa Ana",
+    letterId: "2026-11-01-sakit-and-transfers" },
+
   // ---- Lightning, rabies, and rats (Oct 26, 2026) ----
   // No caption lines in this email; captions are taken from his own words next to each inline photo.
   // The two sunset shots (8, 9) aren't mentioned in the text, so their captions are plain descriptions.

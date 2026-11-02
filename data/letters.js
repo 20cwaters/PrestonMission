@@ -6,6 +6,36 @@
 window.LETTERS = [
 
   {
+    id: "2026-11-01-sakit-and-transfers",
+    title: "Sakit and transfers. Paalam po Elder Witehira🫡",
+    date: "2026-11-01",
+    location: "Santa Ana",
+    week: 13,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamustaaaa poooo! This week has probably been the hardest week in the mish so far because of transfers and getting sick. Elder Witehira got transferred to Tuguegarao and I got a new comp (Elder Randall) which means I have to lead the area and start all the conversations. Also my new comp has only been here in the Philippines for 5 months, and he's from America too, so he's also really new in the language. Which means i gotta speak a lot, so my tagalog has been getting a lot better because im forced to speak a lot more. But i also got really sick right after transfers. I had a fever, cold chills, stomach pains, and rash. Haha I felt like i was gonna pass away. But its all good now because I was put on a saltine cracker and sprite diet for two days straight and now im okay. My body feels like its being held together by marshmallows and uncooked spaghetti, but im still able to go out and work so its all good. I have also been having a hard time sleeping because its so cold. My roommates full blast the A/C at 62 °F and they all got nice comfy hoodies and sweat pants and blankets... i got shorts, a t shirt, and a thin sheet. Because I thought I was gonna be sweating every night not freezing. But its all good now because i just bought me some new sweat pants and hoodie." },
+      { type: "p", text: "Not too much happened this week because I had to stay inside and get better. But one of our friends with a baptismal date just decided to leave and move so that was hard to hear. Buuuttt another one of our freinds came to church so she can get baptized this Sunday! This was good for us because we were low-key struggling in our area after my sickness. But now we're able to go to our freind and teach her and prepare her for her baptism this Sunday." },
+      { type: "p", text: "This week, in one of our lessons with some members, we were just having some chill conversations talking about scriptures like the Bible and Book of Mormon and stuff (I think thats what we were talking about at least) and I was talking tagalog yk?? I felt pretty comfortable too as I was talking and then all of a sudden everyone started laughing at me. And I noticed it right away that I accidentally said stinky instead of long. Because one is mabaho and the other is mahaba so they're pretty similar. And so i guess i accidently called the Bible stinky when I was trying to say it was long as in length. Yeahhhh I guess they thought it was pretty funny." },
+      { type: "p", text: "Today we went to Gayyems which is this food place we go to a lot. But this time I wanted to try something new so I got the pork Sisig, I think is what its called, and ooooooo weeeee was it good" },
+      { type: "p", text: "It's just pork and peppers cooked on a sizzling plate with a raw egg cracked on top with some sauce. And you like mix the egg right as you get it so it cooks in with the pork and rice. It was so masarap. We also met two white guys there which was interesting because theres not a whole lot of white people here, especially in Santa Ana. One of them owns a resort here and he was from Canada, and the other guy... im not too sure, he didn't say anything." },
+      { type: "p", text: "Thats all for this week. I wanna end with this spiritual thought" },
+      { type: "scripture", ref: "Mark 8:35", text: "35 For whosoever will save his life shall lose it; but whosoever shall lose his life for my sake and the gospel’s, the same shall save it." },
+      { type: "p", text: "Mahal ko at namimiss ko kayong lahat! Ingat po kayo!" }
+    ],
+    spiritualThought: {
+      title: "Whosoever shall lose his life for my sake",
+      intro: "I wanna end with this spiritual thought.",
+      scriptureRef: "Mark 8:35",
+      scripture: "For whosoever will save his life shall lose it; but whosoever shall lose his life for my sake and the gospel’s, the same shall save it."
+    },
+    tagalog: [
+      { word: "Mabaho", meaning: "Stinky" },
+      { word: "Mahaba", meaning: "Long (as in length)" }
+    ],
+    photos: ["2026-11-01-1"]
+  },
+
+  {
     id: "2026-10-26-lightning-rabies-and-rats",
     title: "Lightning, rabies, and rats",
     date: "2026-10-26",
