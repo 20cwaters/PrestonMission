@@ -210,6 +210,7 @@ body.has-hero .site-header:not(.is-stuck) .nav-toggle { color: #fff; border-colo
 .nav.open a:nth-child(4) { transition-delay: 136ms; }
 .nav.open a:nth-child(5) { transition-delay: 168ms; }
 .nav.open a:nth-child(6) { transition-delay: 200ms; }
+.nav.open a:nth-child(7) { transition-delay: 232ms; }
 .nav a:active { background: var(--line-soft); }
 .nav a[aria-current="page"] { background: var(--navy); color: #fff; }
 
@@ -964,3 +965,46 @@ blockquote.scripture cite {
 
 /* A photo nobody captioned shows no caption bar. */
 .photo__cap:empty, .photo__ph strong:empty { display: none; }
+
+/* The Mission page: the copy and the boundary picture side by side on a desktop.
+   When there's no picture the copy keeps its reading width on its own. */
+.mission-about { display: flex; flex-direction: column; gap: 30px; }
+.mission-about__text { max-width: 64ch; }
+.mission-about__map .boundary-map { margin: 0; }
+@media (min-width: 900px) {
+  .mission-about { flex-direction: row; align-items: flex-start; gap: 56px; }
+  .mission-about__text { flex: 1 1 0; }
+  .mission-about__map { flex: 0 1 460px; }
+}
+
+/* A one-line card that points to another page. */
+.mission-link {
+  display: flex; align-items: center; gap: 18px; justify-content: space-between;
+  text-decoration: none; color: var(--navy-deep);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.mission-link .stat__label { display: block; margin: 0 0 6px; }
+.mission-link strong { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; line-height: 1.35; }
+.mission-link__arrow { flex: none; font-size: 1.4rem; color: var(--gold-text); transition: transform .2s var(--ease); }
+.mission-link:hover { color: var(--navy-deep); box-shadow: var(--shadow-lg); }
+.mission-link:hover .mission-link__arrow { transform: translateX(4px); }
+
+/* Short facts (About and The Mission pages): two to a row even on a phone. */
+.fact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fact-grid .card { padding: 16px 16px !important; }
+.fact-grid--pair { max-width: 640px; }
+@media (min-width: 900px) {
+  .fact-grid { gap: 20px; }
+  .fact-grid:not(.fact-grid--pair) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fact-grid .card { padding: 22px 24px !important; }
+}
+
+/* Seven links in the header: keep each on one line, and tighten them up on
+   narrower desktops so they still fit beside the name. */
+@media (min-width: 900px) {
+  .nav a { white-space: nowrap; }
+}
+@media (min-width: 900px) and (max-width: 1139px) {
+  .nav { gap: 0; }
+  .nav a { padding: 8px 9px; font-size: .86rem; }
+}

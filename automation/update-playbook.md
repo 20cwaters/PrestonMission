@@ -113,7 +113,7 @@ switches the site from "Week N at the MTC" to the six-week transfer counter, so 
 (`mission.presidentName`), the mission office address (`mission.officeAddress`), or his ward.
 
 A **new mission president** (they change around July 1) also needs `mission.president`, which
-the About page shows: set `names` (the same as `presidentName`) and `since`, web search for the
+the Mission page shows: set `names` (the same as `presidentName`) and `since`, web search for the
 couple's introduction in Church News, and rewrite `bio` as two short paragraphs in your own words
 (where they came from, children, where each served and was born, a few callings; never their
 parents' names) with `source: { label: "Church News", url }`. Set `photo` to `""` unless the

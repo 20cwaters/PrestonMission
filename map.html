@@ -65,52 +65,33 @@
   </div>
 </section>
 
-<section class="section section--alt">
-  <div class="wrap wrap-narrow">
-    <p class="eyebrow">Some context</p>
-    <h2>About the mission</h2>
-    <p>
-      The <strong data-mission-name></strong> covers the far north of Luzon — the Cagayan Valley,
-      Isabela, Nueva Vizcaya, the Cordillera highlands and out to the Batanes islands. It is rice
-      country and river country, hemmed in by mountains on both sides, and Tuguegarao City itself has
-      a reputation for being one of the hottest places in the Philippines.
-    </p>
-    <p>
-      Missionaries there speak <strong data-language></strong> along with the local languages —
-      Ilocano and Ibanag are widely spoken in the valley. Every six weeks, at what is called a
-      transfer, missionaries may be moved to a new area and assigned a new companion. When that
-      happens, this page changes.
-    </p>
+<section class="section section--tight section--alt">
+  <div class="wrap">
+    <a class="card mission-link reveal" href="mission.html">
+      <span>
+        <span class="stat__label">The whole mission</span>
+        <strong>See the mission boundary and who leads the mission</strong>
+      </span>
+      <span class="mission-link__arrow" aria-hidden="true">&rarr;</span>
+    </a>
   </div>
 </section>
 
-<section class="section" data-boundary hidden>
-  <div class="wrap wrap-narrow">
-    <p class="eyebrow">The whole mission</p>
-    <h2>Mission boundary</h2>
-    <p data-boundary-intro></p>
-    <figure class="boundary-map">
-      <a data-boundary-link target="_blank" rel="noopener"><img data-boundary-img alt=""></a>
-      <figcaption data-boundary-caption></figcaption>
-    </figure>
-  </div>
-</section>
+<!-- The mission boundary picture (data-boundary-img, from data/boundary.js and
+     mission-extras.js) lives on mission.html now. This note also tells Mission
+     Control's template update not to add it back here. -->
 
 <footer data-site-footer></footer>
 
 <script src="data/mission.js"></script>
-<script src="data/boundary.js"></script>
 <script src="data/letters.js"></script>
 <script src="data/photos.js"></script>
 <script src="assets/js/site.js"></script>
-<script src="assets/js/mission-extras.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var M = MW.M, st = MW.status(), esc = MW.esc, areas = M.areas;
   var cfg = M.maps || {};
 
-  document.querySelector("[data-mission-name]").textContent = M.mission.name;
-  document.querySelector("[data-language]").textContent = M.mission.language;
   document.querySelector("[data-intro]").textContent =
     areas.length > 1
       ? "He has served in " + areas.length + " areas so far. The map opens on wherever he is right now — drop into street view to see what it actually looks like."

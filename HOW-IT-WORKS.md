@@ -94,7 +94,7 @@ without you.
 
 ## 3. The pages
 
-Six pages, all sharing one header, footer and stylesheet. The navigation is built in JavaScript
+Seven pages, all sharing one header, footer and stylesheet. The navigation is built in JavaScript
 from a single list in `assets/js/site.js`, so adding a page means adding one line there.
 
 | File | Page | What it shows |
@@ -104,7 +104,8 @@ from a single list in `assets/js/site.js`, so adding a page means adding one lin
 | `thoughts.html` | Spiritual Thoughts | Just the spiritual thought from each letter, pulled out on its own, plus an index of every scripture he has shared |
 | `photos.html` | Photos | The full gallery, groupable by week or by place, with his captions and a keyboard-navigable lightbox |
 | `map.html` | Where He Is | Google satellite map of his areas with a Street View panel, an area switcher, the current assignment card and a transfer timeline |
-| `about.html` | About & Write Him | Mission facts, how to email or post to him, the full Tagalog glossary, and a plain-English FAQ about missionary life for people who have never known a missionary |
+| `mission.html` | The Mission | About the mission, the mission boundary picture (`data/boundary.js`), the mission president (`mission.president`), and a plain-English FAQ about missionary life for people who have never known a missionary. The boundary and president are drawn by `assets/js/mission-extras.js` and stay hidden until there is something to show |
+| `about.html` | About & Write Him | Facts about him, how to email or post to him, and the full Tagalog glossary |
 | `admin.html` | *(unlisted)* | The manual paste-an-email tool. Not in the navigation, `noindex` |
 
 ### Supporting files
@@ -561,20 +562,19 @@ The site is not hard-coded to Preston. To stand up a second one:
 3. **Empty the content.** `data/letters.js` becomes `window.LETTERS = [];` and `data/photos.js`
    becomes `window.PHOTOS = [];`. Delete everything in `photos/` except the folder.
 4. **Add a portrait** at `photos/<name>.jpg` and point `missionary.portrait` at it.
-5. **Check the copy that is specific to this mission.** `map.html` has two paragraphs describing
-   northern Luzon, and `about.html` has FAQ copy mentioning Tagalog and the Manila MTC. Both need
-   rewriting for a different mission.
+5. **Check the copy that is specific to this mission.** `mission.html` has three paragraphs describing
+   northern Luzon and FAQ copy mentioning the Manila MTC. Both need rewriting for a different mission.
 6. **Deploy** — new Netlify site linked to the new repository.
 7. **Set up the automation** — a new scheduled task pointing at the new folder, with the missionary's
    own email address in the Gmail search. Copy `automation/update-playbook.md` across and update the
    name, mission, dates and the geographic sanity-check bounds.
 8. **Get a Maps key** for the new site, restricted to its domain.
 
-The parts that are genuinely reusable without edits: all six pages, the stylesheet, `site.js`, the
+The parts that are genuinely reusable without edits: all seven pages, the stylesheet, `site.js`, the
 optimizer, `netlify.toml` and `admin.html`.
 
-The parts that need rewriting per mission: `mission.js`, the regional paragraphs in `map.html` and
-`about.html`, and the playbook's context section.
+The parts that need rewriting per mission: `mission.js`, the regional paragraphs and FAQ in
+`mission.html`, and the playbook's context section.
 
 ---
 

@@ -168,7 +168,7 @@ Everything below is marked `TODO` in `data/mission.js`:
 - `manilaMtcStart` — the date he flies to the Manila MTC. Setting it adds a countdown to the homepage.
 - `fieldStart` — his first day in the actual mission field. Setting it switches the homepage
   from "Week N at the MTC" to "Transfer N, week N of 6" and starts the six-week transfer clock.
-- `presidentName`, `officeAddress` — for the About page.
+- `presidentName`, `officeAddress` — for the About and Mission pages.
 - `homeWard` — optional.
 - His MTC companion's name, in the `areas` list.
 
@@ -184,7 +184,8 @@ letters.html    Every letter, searchable, with that week's photos attached
 thoughts.html   Just the spiritual thoughts and scriptures
 photos.html     Full gallery, grouped by week or by place, with a lightbox
 map.html        Leaflet map of his areas, current assignment, transfer timeline
-about.html      Mission facts, how to write him, Tagalog glossary, missionary-life FAQ
+mission.html    About the mission, boundary map, mission president, missionary-life FAQ
+about.html      Facts about him, how to write him, Tagalog glossary
 admin.html      The paste-an-email tool (not linked in the main nav)
 
 data/mission.js The facts: dates, mission, areas. Edit this on transfers.

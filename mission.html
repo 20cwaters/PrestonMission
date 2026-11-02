@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Mission — Elder Preston Waters</title>
+<meta name="description" content="The Philippines Tuguegarao Mission: where it is, its boundary, who leads it, and how a mission works.">
+<meta name="theme-color" content="#0b2437">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className+=" js-motion";setTimeout(function(){if(!window.MOTION)document.documentElement.classList.remove("js-motion");},2500);</script>
+
+</head>
+<body>
+
+<header data-site-header></header>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">Where he was called</p>
+    <h1 data-mission-title></h1>
+    <p class="lede" style="max-width:64ch" data-lede></p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="grid fact-grid fact-grid--pair" data-facts></div>
+</section>
+
+<!-- The boundary picture sits beside the copy; mission-extras.js unhides it when
+     data/boundary.js has one, and the copy takes the full width when it doesn't. -->
+<section class="section">
+  <div class="wrap mission-about">
+    <div class="mission-about__text">
+      <p class="eyebrow">Some context</p>
+      <h2>About the mission</h2>
+      <p>
+        The <strong data-mission-name></strong> covers the far northeast of Luzon: all of Cagayan,
+        most of Isabela, Kalinga up in the Cordillera mountains, and the Batanes and Babuyan
+        islands out to sea, almost all the way to Taiwan. It was created in July 2024, so it is
+        one of the newest missions in the Philippines.
+      </p>
+      <p>
+        It is rice country and river country. The Cagayan River, the longest in the Philippines,
+        runs up the middle of the valley between two mountain ranges, and Tuguegarao City itself
+        has a reputation for being one of the hottest places in the country.
+      </p>
+      <p>
+        Missionaries there speak <strong data-language></strong> along with the local languages.
+        Ilocano and Ibanag are widely spoken in the valley.
+      </p>
+    </div>
+
+    <div class="mission-about__map" data-boundary hidden>
+      <figure class="boundary-map">
+        <a data-boundary-link target="_blank" rel="noopener"><img data-boundary-img alt=""></a>
+        <figcaption><span data-boundary-intro></span> <span data-boundary-caption></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" data-president hidden>
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">Who leads the mission</p>
+    <h2>The mission president</h2>
+    <div class="president" data-president-body></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">For anyone new to this</p>
+    <h2>How a mission works</h2>
+
+    <h3 style="margin-top:1.6em">What is the MTC?</h3>
+    <p>
+      The Missionary Training Center. Missionaries learning a new language usually spend about six
+      weeks at the one in Provo, Utah, then continue at a training center in their assigned country —
+      for Preston, that is the one in Manila — before heading out to their actual mission.
+    </p>
+
+    <h3>What is a transfer?</h3>
+    <p>
+      Roughly every six weeks the mission president reassigns missionaries. Preston may stay put or
+      be moved to a new town, and he may get a new companion either way. Transfer news usually shows
+      up in the weekly email, and the <a href="map.html">Where He Is</a> page gets updated when it does.
+    </p>
+
+    <h3>What is a companion?</h3>
+    <p>
+      Missionaries are always paired up. Companions live, study, and teach together for the length of
+      a transfer or longer. You will see a lot of names come and go over two years.
+    </p>
+
+    <h3>What is a P-day?</h3>
+    <p>
+      Preparation day — one day a week for laundry, groceries, sightseeing, and writing home. That is
+      when the weekly email arrives, and when he is allowed to call or video chat with his family.
+    </p>
+
+    <h3>How long is he out?</h3>
+    <p data-length></p>
+  </div>
+</section>
+
+<footer data-site-footer></footer>
+
+<script src="data/mission.js"></script>
+<script src="data/boundary.js"></script>
+<script src="data/letters.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/mission-extras.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var M = MW.M, st = MW.status(), esc = MW.esc;
+
+  document.querySelector("[data-mission-title]").textContent = M.mission.name;
+  document.querySelector("[data-lede]").textContent =
+    M.missionary.firstName + " has been called to serve here for two years. Here is where the " +
+    "mission is, who leads it, and what a missionary's life there looks like.";
+  document.querySelector("[data-mission-name]").textContent = M.mission.name;
+  document.querySelector("[data-language]").textContent = M.mission.language;
+
+  var facts = [
+    { k: "Language", v: M.mission.languageNative || M.mission.language },
+    { k: "Mission office", v: M.mission.officeAddress[1] || M.mission.country }
+  ];
+
+  document.querySelector("[data-facts]").innerHTML = facts.map(function (f) {
+    return '<div class="card reveal" style="padding:22px 24px">' +
+      '<div class="stat__label" style="margin:0 0 8px">' + esc(f.k) + '</div>' +
+      '<div style="font-family:var(--serif);font-size:1.12rem;color:var(--navy-deep);line-height:1.35">' +
+      esc(f.v) + '</div></div>';
+  }).join("");
+
+  var totalDays = MW.days(MW.d(M.dates.mtcStart), MW.d(M.dates.release));
+  document.querySelector("[data-length]").textContent =
+    "Two years — " + totalDays + " days from the MTC to the plane home. As of today he is " +
+    st.daysOut + " days in with " + st.daysLeft + " to go, or about " +
+    Math.round(st.percent) + "% of the way through.";
+});
+</script>
+<script src="assets/js/motion.js"></script>
+</body>
+</html>
