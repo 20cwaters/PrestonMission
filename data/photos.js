@@ -9,6 +9,12 @@
 
 window.PHOTOS = [
 
+  // ---- Added by Casey, Brother through the family link (2026-11-05) ----
+  { id: "family-2026-11-01-casey-video-1", video: "41e13d4ee614b7fad444046634523258", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/41e13d4ee614b7fad444046634523258/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/41e13d4ee614b7fad444046634523258/iframe", date: "2026-11-01",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-01-sakit-and-transfers" },
+
   // ---- Sakit and transfers. Paalam po Elder Witehira🫡 (Nov 1, 2026) ----
   // No caption lines in this email; the caption is taken from his own words next to the photo.
   { id: "2026-11-01-1", src: "photos/2026-11-01-1.jpg", date: "2026-11-01",
