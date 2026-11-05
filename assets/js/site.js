@@ -274,6 +274,7 @@
         '<code>' + esc(p.src.replace("photos/", "")) + '</code>' +
       '</span>' +
       (p.sharedBy ? '<span class="photo__shared">' + esc(sharedByLabel(p.sharedBy)) + '</span>' : '') +
+      (p.video ? '<span class="photo__play" aria-label="Video"></span>' : '') +
       '<span class="photo__cap">' + esc(p.caption) + '</span>' +
       '</button>';
   }
@@ -318,7 +319,7 @@
       '<button class="lightbox__close" aria-label="Close">&times;</button>' +
       '<button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">&#8249;</button>' +
       '<button class="lightbox__nav lightbox__nav--next" aria-label="Next">&#8250;</button>' +
-      '<figure class="lightbox__figure"><img alt=""><figcaption class="lightbox__cap"></figcaption></figure>';
+      '<figure class="lightbox__figure"><img alt=""><div class="lightbox__video" hidden></div><figcaption class="lightbox__cap"></figcaption></figure>';
     document.body.appendChild(lb);
     lb.querySelector(".lightbox__close").addEventListener("click", closeLightbox);
     lb.querySelector(".lightbox__nav--prev").addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
@@ -337,8 +338,16 @@
 
   function paintLightbox() {
     var p = lbList[lbIdx];
-    var img = lb.querySelector("img");
-    img.src = p.src;
+    var img = lb.querySelector("img"), video = lb.querySelector(".lightbox__video");
+    // Videos play in Cloudflare Stream's player. Its iframe is removed when another
+    // photo shows or the lightbox closes, which is what stops the sound.
+    video.innerHTML = p.video && /^https:\/\/[a-z0-9.-]+\.cloudflarestream\.com\//.test(p.embed || "")
+      ? '<iframe src="' + esc(p.embed) + '?autoplay=true" title="' + esc(p.caption || "Video") + '" ' +
+        'allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>'
+      : "";
+    video.hidden = !video.innerHTML;
+    img.hidden = !video.hidden;
+    if (video.hidden) img.src = p.src;
     img.alt = p.caption;
     lb.querySelector(".lightbox__cap").innerHTML =
       esc(p.caption) + '<span>' + fmtDate(p.date) + (p.location ? ' &middot; ' + esc(p.location) : '') + '</span>' +
@@ -355,6 +364,7 @@
 
   function closeLightbox() {
     lb.classList.remove("open");
+    lb.querySelector(".lightbox__video").innerHTML = "";
     document.body.style.overflow = "";
   }
 
