@@ -9,6 +9,30 @@
 
 window.PHOTOS = [
 
+  // ---- Baluuuuut Baluuuuut!🐣 (Nov 9, 2026) ----
+  // No caption lines in this email; captions 1-3 are taken from his own words about
+  // the exchange and the baptism. Photos 4 and 5 aren't mentioned anywhere in the
+  // letter, so their captions are plain descriptions.
+  { id: "2026-11-09-1", src: "photos/2026-11-09-1.jpg", date: "2026-11-09",
+    caption: "A very beautiful bike ride next to the ocean and mountains during the sunset", location: "Santa Ana",
+    letterId: "2026-11-09-baluuuuut-baluuuuut" },
+
+  { id: "2026-11-09-2", src: "photos/2026-11-09-2.jpg", date: "2026-11-09",
+    caption: "I was able to baptize her in the ocean as well, except it was kind of stormy and so the waves were a little big", location: "Santa Ana",
+    letterId: "2026-11-09-baluuuuut-baluuuuut" },
+
+  { id: "2026-11-09-3", src: "photos/2026-11-09-3.jpg", date: "2026-11-09",
+    caption: "Elder Randall and I had a baptism this sunday!!!", location: "Santa Ana",
+    letterId: "2026-11-09-baluuuuut-baluuuuut" },
+
+  { id: "2026-11-09-4", src: "photos/2026-11-09-4.jpg", date: "2026-11-09",
+    caption: "Ice cream", location: "Santa Ana",
+    letterId: "2026-11-09-baluuuuut-baluuuuut" },
+
+  { id: "2026-11-09-5", src: "photos/2026-11-09-5.jpg", date: "2026-11-09",
+    caption: "A kid in a vampire mask with a pumpkin bucket", location: "Santa Ana",
+    letterId: "2026-11-09-baluuuuut-baluuuuut" },
+
   // ---- Added by Casey, Brother through the family link (2026-11-05) ----
   { id: "family-2026-11-01-casey-video-1", video: "41e13d4ee614b7fad444046634523258", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/41e13d4ee614b7fad444046634523258/thumbnails/thumbnail.jpg?time=1s&height=720",
     embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/41e13d4ee614b7fad444046634523258/iframe", date: "2026-11-01",

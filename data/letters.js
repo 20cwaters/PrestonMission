@@ -6,6 +6,37 @@
 window.LETTERS = [
 
   {
+    id: "2026-11-09-baluuuuut-baluuuuut",
+    title: "Baluuuuut Baluuuuut!🐣",
+    date: "2026-11-09",
+    location: "Santa Ana",
+    week: 14,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po!!! This week i finally ate balut. Not as bad as I thought it would be but still pretty bad. For those who don't know what balut is, its a boiled fertilized duck egg. So its a duck that's been developed in the egg and then boiled and then you peel off the shell like a boiled egg, put some of this vinegar juice on it, and then pop the whole thing in your mouth. It tasted like a boiled egg that's been cut in pieces. Like it just fell apart in my mouth and then there was a bunch of separate parts that all just tasted like boiled eggs. I got some water though to help get it down because it was super dry. But honestly not too bad, I would rate a 6/10. It kinda tasted good, it was just the thought of a baby duck in my mouth that didnt feel right and made it hard to eat. Usually there's these people on bikes that go around at night and yell \"baluuuuut baluuuut!!!!\" And they're usually the ones that you get balut from, but this time there was just a little girl outside of a 7-11 who had a box that said \"BALUT :)\" and there was a smiley face next to it. So I was like huh sure why not and bought a balut egg. There's a video on the Google photo album so feel free to check it out" },
+      { type: "p", text: "Except well my Google photos isnt really working right now and its been trying to upload my video this whole week so hopefully it finally uploads and you guys can watch it." },
+      { type: "p", text: "That same day we also watched two roosters fight. It was really cool. People gamble on it here and the roosters fight to the death, its wild. Except the rooster fight we watched was just a practice fight so they covered up the claw and so it was a friendly fight, sort of. None of the roosters were hurt or anything. But they like train their roosters here to fight better and its a very serious thing I guess. There's also a video on the album if you wanna check it out." },
+      { type: "p", text: "This week we had exchanges and so I went into the other elders area and biked to the furtherest part of their area. It was like a little more than an hour bike ride there, and then I guess the people we were supposed to teach weren't there so we biked another hour all the way back. My whole body hurt the next day. But it was a very beautiful bike ride next to the ocean and mountains during the sunset so it was totally worth it." },
+      { type: "p", text: "Elder Randall and I had a baptism this sunday!!! She's a nanay we met about three weeks ago who was the grandma of one of the kids we're teaching, and she was so excited to get baptised. Every time we visited her she would always tell us how excited she was. I was able to baptize her in the ocean as well, except it was kind of stormy and so the waves were a little big. It ended up going okay though." },
+      { type: "p", text: "There was also this one nanay we've been visiting and she told us that she speaks better Ilocano (one of many languages here in the Philippines) then Tagalog. And so we returned to her one night with an Ilocano Book of Mormon but she was already asleep, so we left it in her window so she would see it the next morning. Then when we were able to meet with her again five days later, she read all the way to Alma chapter 26. This was such a huge shock, and at first we didn't really believe her, but then she was telling us all of the stories and the teachings and how much she loved it because it was in Ilocano. And this was such a huge blessing because shes never been able to read and understand a lot because everything is in tagalog or English, so this was a huge blessing for her and she just loves the Book of Mormon so much." },
+      { type: "p", text: "Thats all for this week. I'm loving it here in the Philippines, the language is getting a lot better, the food is still a mystery most of the time, and the people are amazing! Ingat po kayo lahat! Namimiss ko at mahal ko kayo lahat!" },
+      { type: "p", text: "I wanna end with this spiritual thought from the Book Of Mormon:" },
+      { type: "scripture", ref: "2 Nephi 32:3", text: "3 Angels speak by the power of the Holy Ghost; wherefore, they speak the words of Christ. Wherefore, I said unto you, feast upon the words of Christ; for behold, the words of Christ will tell you all things what ye should do." }
+    ],
+    spiritualThought: {
+      title: "Feast upon the words of Christ",
+      intro: "I wanna end with this spiritual thought from the Book Of Mormon.",
+      scriptureRef: "2 Nephi 32:3",
+      scripture: "Angels speak by the power of the Holy Ghost; wherefore, they speak the words of Christ. Wherefore, I said unto you, feast upon the words of Christ; for behold, the words of Christ will tell you all things what ye should do."
+    },
+    tagalog: [
+      { word: "Balut", meaning: "A boiled fertilized duck egg" },
+      { word: "Ilocano", meaning: "One of many languages here in the Philippines" }
+    ],
+    photos: ["2026-11-09-1", "2026-11-09-2", "2026-11-09-3", "2026-11-09-4", "2026-11-09-5"]
+  },
+
+  {
     id: "2026-11-01-sakit-and-transfers",
     title: "Sakit and transfers. Paalam po Elder Witehira🫡",
     date: "2026-11-01",
