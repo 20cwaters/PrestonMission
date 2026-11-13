@@ -1,10 +1,10 @@
 /* ============================================================
    MISSION EXTRAS  —  Mission Control writes this file and replaces it
    whenever its template changes, so change the data, not this:
-     · About page: the mission president, from mission.president
-       in data/mission.js
-     · Where page: the mission boundary picture, from data/boundary.js
-       (uploaded in Mission Control, on the site's page)
+     · the mission president, from mission.president in data/mission.js
+     · the mission boundary picture, from data/boundary.js (uploaded in
+       Mission Control, on the site's page)
+   Both are on the Mission page (mission.html).
    Each section stays hidden until there is something to show.
    ============================================================ */
 (function () {
@@ -23,7 +23,7 @@
     var missionName = mission.name || "mission";
     var who = (M.missionary || {}).firstName || "the missionary";
 
-    /* ---------------- the mission president (About page) ---------------- */
+    /* ---------------- the mission president ---------------- */
     var ps = document.querySelector("[data-president]");
     var p = mission.president;
     if (ps && p && p.names && p.bio && p.bio.length) {
@@ -32,7 +32,9 @@
         (p.photo ? '<div class="president__photo"><img src="' + esc(p.photo) + '" alt="' + esc(p.names) + '"></div>' : '') +
         '<div class="president__text">' +
           '<h3>' + esc(p.names) + '</h3>' +
-          (p.since ? '<p class="president__since">Leading the ' + esc(missionName) + ' since ' + esc(monthYear(p.since)) + '</p>' : '') +
+          // `until`: a couple who has since been released (a finished mission shows the one who led most of it).
+          (p.since && p.until ? '<p class="president__since">Led the ' + esc(missionName) + ' from ' + esc(monthYear(p.since)) + ' to ' + esc(monthYear(p.until)) + '</p>'
+            : p.since ? '<p class="president__since">Leading the ' + esc(missionName) + ' since ' + esc(monthYear(p.since)) + '</p>' : '') +
           [].concat(p.bio).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join("") +
           (p.source && p.source.url
             ? '<p class="president__source">From their introduction in <a href="' + esc(p.source.url) +
@@ -43,7 +45,7 @@
       ps.hidden = false;
     }
 
-    /* ---------------- the mission boundary (Where page) ---------------- */
+    /* ---------------- the mission boundary ---------------- */
     var bs = document.querySelector("[data-boundary]");
     var b = window.MISSION_BOUNDARY;
     if (bs && b && b.image) {

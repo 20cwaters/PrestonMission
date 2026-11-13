@@ -381,6 +381,100 @@
     return out.reverse();
   }
 
+  /* ---------------- after the mission ---------------- */
+
+  // Once the release date has passed, the site reads as a finished mission: past tense,
+  // "came home", no countdown, and no "write him" (the missionary email is closed).
+  // It runs after each page's own script and rewrites only the bits that would be wrong,
+  // so the pages themselves don't change. (Added by Mission Control's template update.)
+  function finishedMission() {
+    if (!M.dates || !M.dates.release || today() < d(M.dates.release)) return;
+    var she = M.missionary.title === "Sister";
+    var he = she ? "she" : "he", He = she ? "She" : "He";
+    var name = M.missionary.firstName, missionName = M.mission.name;
+    var home = fmtDate(M.dates.release), total = days(d(M.dates.mtcStart), d(M.dates.release));
+    var fieldAreas = (M.areas || []).filter(function (a) { return a.type !== "mtc"; });
+    var $ = function (sel) { return document.querySelector(sel); };
+    var setText = function (sel, text) { var el = $(sel); if (el) el.textContent = text; };
+
+    // Navigation, footer and tab title: "Where He Served", "About", nothing to write to.
+    [].forEach.call(document.querySelectorAll('a[href="map.html"], a[href="about.html"]'), function (a) {
+      a.textContent = a.textContent.replace(/Where (He|She) Is/, "Where $1 Served").replace(/About & Write (Him|Her)/, "About");
+    });
+    document.title = document.title.replace(/Where (He|She) Is/, "Where $1 Served").replace(/About & Write (Him|Her)/, "About");
+    [].forEach.call(document.querySelectorAll('[data-site-footer] a[href="about.html#write"], [data-site-footer] a[href^="mailto:' + M.missionary.email + '"]'), function (a) {
+      var box = a.closest("li, p");
+      if (box) box.parentNode.removeChild(box);
+    });
+
+    // Home: the hero facts and the progress card.
+    var facts = document.querySelectorAll("[data-hero-facts] .fact");
+    if (facts.length) {
+      ["Served in the " + missionName, "Spoke " + M.mission.language, "Home since " + home].forEach(function (t, i) {
+        if (facts[i] && facts[i].lastElementChild) facts[i].lastElementChild.innerHTML = "<b>" + esc(t) + "</b>";
+      });
+      for (var i = 3; i < facts.length; i++) facts[i].parentNode.removeChild(facts[i]);
+    }
+    var stats = $("[data-stats]");
+    if (stats) {
+      stats.innerHTML = [[total, "Days served"], [LETTERS.length, "Letters home"], [fieldAreas.length || "—", "Areas served"]].map(function (s) {
+        return '<div class="stat"><div class="stat__num">' + esc(s[0]) + '</div><div class="stat__label">' + esc(s[1]) + '</div></div>';
+      }).join("");
+    }
+
+    // About: past tense, "Came home", no current area or companion, no "How to write him".
+    var write = document.getElementById("write");
+    if (write) {
+      write.hidden = true;
+      var mtc = (M.areas[0] && M.areas[0].type === "mtc") ? M.areas[0].name : "MTC";
+      setText("[data-lede]", name + " served in the " + missionName + ", speaking " + M.mission.language + ". " + He +
+        " entered the " + mtc + " on " + fmtDate(M.dates.mtcStart) + " and came home " + home + ".");
+      [].forEach.call(document.querySelectorAll("[data-facts] .card"), function (card) {
+        var label = card.firstElementChild, key = label ? label.textContent.trim().toLowerCase() : "";
+        if (key === "expected home") label.textContent = "Came home";
+        if (key === "currently" || key === "companion") card.parentNode.removeChild(card);
+      });
+    }
+
+    // The Mission page: who led it, and how long it was.
+    if ($("[data-mission-title]")) {
+      var months = Math.round(total / 30.44);
+      var length = Math.abs(months - 24) <= 1 ? "two years" : Math.abs(months - 18) <= 1 ? "eighteen months" : months + " months";
+      setText("[data-lede]", name + " served here for " + length + ". Here is where the mission is, who led it while " + he +
+        " was there, and what a missionary's life there looks like.");
+      setText("[data-length]", length.charAt(0).toUpperCase() + length.slice(1) + " — " + total +
+        " days from the MTC to the plane home. " + He + " finished on " + home + ".");
+      [].forEach.call(document.querySelectorAll(".eyebrow"), function (p) {
+        if (/who leads the mission/i.test(p.textContent)) p.textContent = "Who led the mission";
+      });
+    }
+
+    // Where He Served: no "now", and the last area instead of the current one.
+    var current = $("[data-current]");
+    if (current) {
+      var h1 = $("h1");
+      if (h1) h1.textContent = "Where " + he + " served";
+      setText("[data-intro]", fieldAreas.length
+        ? He + " served in " + fieldAreas.length + " area" + (fieldAreas.length === 1 ? "" : "s") + ". Use the buttons above to jump between them, and drop into street view to see what each one actually looks like."
+        : "The areas " + he + " served in get added here as " + (she ? "her" : "his") + " letters are added. Drop into street view to look around.");
+      if (current.previousElementSibling) current.previousElementSibling.textContent = "Last area";
+      var a = status().area;
+      if (!a || a.type === "mtc") {
+        current.innerHTML = '<p class="muted">' + (she ? "Her" : "His") + " areas in " + esc(M.mission.country) + " get added here as " + (she ? "her" : "his") + " letters are added.</p>";
+      } else {
+        current.innerHTML = '<h3 style="font-size:1.5rem">' + esc(a.name) + '</h3>' +
+          '<p class="muted" style="margin-bottom:1.2em">' + esc(a.region) + '</p>' +
+          '<p style="font-size:.95rem"><strong>Arrived:</strong> ' + fmtDate(a.start) + '<br>' +
+          (a.companion ? '<strong>Companion:</strong> ' + esc(a.companion) + '<br>' : '') +
+          '<strong>Until ' + he + ' came home:</strong> ' + home + '</p>' +
+          (a.note ? '<p style="color:var(--ink-soft);font-size:.95rem">' + esc(a.note) + '</p>' : '');
+      }
+      [].forEach.call(document.querySelectorAll(".area-tab__now"), function (el) { el.parentNode.removeChild(el); });
+    }
+  }
+  // After every page's own DOMContentLoaded script (they're registered after this file loads).
+  document.addEventListener("DOMContentLoaded", function () { setTimeout(finishedMission, 0); });
+
   /* ---------------- expose ---------------- */
 
   window.MW = {
