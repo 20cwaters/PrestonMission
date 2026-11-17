@@ -9,6 +9,22 @@
 
 window.PHOTOS = [
 
+  // ---- Malunngay...PANDESAL! WITH CHEESE! Mainit pa! (Nov 16, 2026) ----
+  // No caption lines in this email. Photo 3 is captioned from his own words about the
+  // pandesal carts; photos 1 and 2 aren't clearly described in the letter, so their
+  // captions are plain descriptions. Filed in attachment order.
+  { id: "2026-11-16-1", src: "photos/2026-11-16-1.jpg", date: "2026-11-16",
+    caption: "Digging a hole with friends", location: "Santa Ana",
+    letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
+
+  { id: "2026-11-16-2", src: "photos/2026-11-16-2.jpg", date: "2026-11-16",
+    caption: "On a hilltop above the trees, with the ocean behind", location: "Santa Ana",
+    letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
+
+  { id: "2026-11-16-3", src: "photos/2026-11-16-3.jpg", date: "2026-11-16",
+    caption: "There's these cart motorcycle thingies that have these ovens on them", location: "Santa Ana",
+    letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
+
   // ---- Baluuuuut Baluuuuut!🐣 (Nov 9, 2026) ----
   // No caption lines in this email; captions 1-3 are taken from his own words about
   // the exchange and the baptism. Photos 4 and 5 aren't mentioned anywhere in the

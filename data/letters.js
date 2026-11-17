@@ -6,6 +6,35 @@
 window.LETTERS = [
 
   {
+    id: "2026-11-16-malunngay-pandesal-with-cheese",
+    title: "Malunngay...PANDESAL! WITH CHEESE! Mainit pa!",
+    date: "2026-11-16",
+    location: "Santa Ana",
+    week: 15,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po! Another week here in the Philies. My comp got peed on by a kid and I saw chickens fly so its been a wild one." },
+      { type: "p", text: "Started off the week really well with zone con so that was awesome. We learned a lot about covenants and how we can draw closer to our Heavenly Father. My roommate, Elder Diduro, also gave his departing testimony which was sad because Elder Diduro has been so much fun and its sad that he's leaving after this cycle. After that we worked worked and worked." },
+      { type: "p", text: "Wednesday I went on exchanges with Elder Diduro. I watched a moth get devoured by a giant spider and I ate barbecued chicken intestines on a stick. It was quite the day I gotta say. I also learned a lot of tagalog and im a lot more confident in my teaching skills now so that's good. Elder Diduro is a good teacher and helped me learn a lot so that was very helpful." },
+      { type: "p", text: "On Thursday we went up the mountain, and as we were teaching, chickens were flying from tree to tree. Which I didn't really know was possible but I guess I was wrong. And there was a tree right above me where a bunch of chickens were sitting and I was scared they were going to poop on me. So I put my sweat rag on my head and just hoped that one wouldn't need to poop." },
+      { type: "p", text: "I guess I should probably explain the title a little bit. There's these cart motorcycle thingies that have these ovens on them and they go around everywhere and blast \"malunggay pandesal! With cheese! Mainit pa!\" On a giant speaker on repeat. And they sell these fresh baked rolls with cheese inside and seasoning on top and its sooooooo good. And theyre really inexpensive too so its like a perfect snack for when your biking, and your tired, and hungry and you just hear somewhere off in the distance \"MAINIT PA!\" OOOOOH MAN i get so excited like a little boy when they hear an ice-cream truck. I rush over to the noise and buy myself a couple of rolls and oh man its the best. Sometimes it comes right outside our apartment and ooooweeyy thats the best." },
+      { type: "p", text: "This sunday was amazing, we had 8 new friends come to church was so exciting. When we followed up with them, they said they loved it and want to keep coming to church. Theres been so many blessings here lately and the Lord has really been magnifying our efforts, because our tagalog isnt the best but we've been seeing so many miracles." },
+      { type: "p", text: "Thats all for this week! Loving it here in the Philies! Remi the Rat has also made it in our ceiling and likes to run laps at midnight and scratch at random things, sadly we haven't woken up to omletes yet, but i believe it'll happen one day. But anyways thanks for the emails! Maraming salamat at Ingat po kayo lahat!!!" },
+      { type: "scripture", ref: "Moroni 7:45–47", text: "45 And charity suffereth long, and is kind, and envieth not, and is not puffed up, seeketh not her own, is not easily provoked, thinketh no evil, and rejoiceth not in iniquity but rejoiceth in the truth, beareth all things, believeth all things, hopeth all things, endureth all things.\n\n46 Wherefore, my beloved brethren, if ye have not charity, ye are nothing, for charity never faileth. Wherefore, cleave unto charity, which is the greatest of all, for all things must fail—\n\n47 But charity is the pure love of Christ, and it endureth forever; and whoso is found possessed of it at the last day, it shall be well with him." }
+    ],
+    spiritualThought: {
+      title: "Charity never faileth",
+      intro: "",
+      scriptureRef: "Moroni 7:45–47",
+      scripture: "And charity suffereth long, and is kind, and envieth not, and is not puffed up, seeketh not her own, is not easily provoked, thinketh no evil, and rejoiceth not in iniquity but rejoiceth in the truth, beareth all things, believeth all things, hopeth all things, endureth all things.\n\nWherefore, my beloved brethren, if ye have not charity, ye are nothing, for charity never faileth. Wherefore, cleave unto charity, which is the greatest of all, for all things must fail—\n\nBut charity is the pure love of Christ, and it endureth forever; and whoso is found possessed of it at the last day, it shall be well with him."
+    },
+    tagalog: [
+      { word: "Malunggay pandesal", meaning: "Fresh baked rolls with cheese inside and seasoning on top" }
+    ],
+    photos: ["2026-11-16-1", "2026-11-16-2", "2026-11-16-3"]
+  },
+
+  {
     id: "2026-11-09-baluuuuut-baluuuuut",
     title: "Baluuuuut Baluuuuut!🐣",
     date: "2026-11-09",
