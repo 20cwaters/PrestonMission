@@ -10,6 +10,12 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-11-09-video-4", video: "fa9b627ecd7c32adc0f40103b7af127a", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/fa9b627ecd7c32adc0f40103b7af127a/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/fa9b627ecd7c32adc0f40103b7af127a/iframe", date: "2026-11-09",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-09-baluuuuut-baluuuuut" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-11-09-1", src: "photos/album-2026-11-09-1.jpg", date: "2026-11-09",
     caption: "", location: "Santa Ana",
     letterId: "2026-11-09-baluuuuut-baluuuuut" },
