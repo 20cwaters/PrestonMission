@@ -10,6 +10,26 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-09-21-13", src: "photos/album-2026-09-21-13.jpg", date: "2026-09-21",
+    caption: "", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+  { id: "album-2026-09-21-14", src: "photos/album-2026-09-21-14.jpg", date: "2026-09-21",
+    caption: "", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+  { id: "album-2026-09-21-video-4", video: "9080b9a337bedaca1f128bc2b386a3bf", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/9080b9a337bedaca1f128bc2b386a3bf/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/9080b9a337bedaca1f128bc2b386a3bf/iframe", date: "2026-09-21",
+    caption: "", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+  { id: "album-2026-09-21-video-5", video: "d36b38a3f61d5b8effbbf81894f7baec", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/d36b38a3f61d5b8effbbf81894f7baec/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/d36b38a3f61d5b8effbbf81894f7baec/iframe", date: "2026-09-21",
+    caption: "", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+  { id: "album-2026-09-21-video-6", video: "a4986db17279844983d4061284739c22", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/a4986db17279844983d4061284739c22/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/a4986db17279844983d4061284739c22/iframe", date: "2026-09-21",
+    caption: "", location: "Tuguegarao",
+    letterId: "2026-09-21-masarap-food-in-the-philippines" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-09-27-1", src: "photos/album-2026-09-27-1.jpg", date: "2026-09-27",
     caption: "", location: "Santa Ana",
     letterId: "2026-09-27-santa-ana" },
