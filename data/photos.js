@@ -10,6 +10,25 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-11-23-1", src: "photos/album-2026-11-23-1.jpg", date: "2026-11-23",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+  { id: "album-2026-11-23-2", src: "photos/album-2026-11-23-2.jpg", date: "2026-11-23",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+  { id: "album-2026-11-23-3", src: "photos/album-2026-11-23-3.jpg", date: "2026-11-23",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+  { id: "album-2026-11-23-video-1", video: "e6378380ebb4f83e869ed4c77ea8fb10", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/e6378380ebb4f83e869ed4c77ea8fb10/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/e6378380ebb4f83e869ed4c77ea8fb10/iframe", date: "2026-11-23",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+  { id: "album-2026-11-23-video-2", video: "abbdc204e67dcb8b265acfbef66495ef", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/abbdc204e67dcb8b265acfbef66495ef/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/abbdc204e67dcb8b265acfbef66495ef/iframe", date: "2026-11-23",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-11-16-video-7", video: "46b16b67e130ba1c12bebc905659fa49", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/46b16b67e130ba1c12bebc905659fa49/thumbnails/thumbnail.jpg?time=1s&height=720",
     embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/46b16b67e130ba1c12bebc905659fa49/iframe", date: "2026-11-16",
     caption: "", location: "Santa Ana",
