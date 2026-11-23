@@ -10,6 +10,23 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-09-27-13", src: "photos/album-2026-09-27-13.jpg", date: "2026-09-27",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+  { id: "album-2026-09-27-14", src: "photos/album-2026-09-27-14.jpg", date: "2026-09-27",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+  { id: "album-2026-09-27-15", src: "photos/album-2026-09-27-15.jpg", date: "2026-09-27",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+  { id: "album-2026-09-27-16", src: "photos/album-2026-09-27-16.jpg", date: "2026-09-27",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+  { id: "album-2026-09-27-17", src: "photos/album-2026-09-27-17.jpg", date: "2026-09-27",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-09-27-santa-ana" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-09-21-13", src: "photos/album-2026-09-21-13.jpg", date: "2026-09-21",
     caption: "", location: "Tuguegarao",
     letterId: "2026-09-21-masarap-food-in-the-philippines" },
