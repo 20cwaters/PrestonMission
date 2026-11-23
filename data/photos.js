@@ -9,6 +9,29 @@
 
 window.PHOTOS = [
 
+  // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-08-11-1", src: "photos/album-2026-08-11-1.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+  { id: "album-2026-08-11-2", src: "photos/album-2026-08-11-2.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+  { id: "album-2026-08-11-3", src: "photos/album-2026-08-11-3.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+  { id: "album-2026-08-11-4", src: "photos/album-2026-08-11-4.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+  { id: "album-2026-08-11-5", src: "photos/album-2026-08-11-5.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+  { id: "album-2026-08-11-6", src: "photos/album-2026-08-11-6.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+  { id: "album-2026-08-11-7", src: "photos/album-2026-08-11-7.jpg", date: "2026-08-11",
+    caption: "", location: "Provo MTC",
+    letterId: "2026-08-11-week-1-of-mtc" },
+
   // ---- Bagyo⛈️ (Nov 23, 2026) ----
   // No caption lines in this email; captions are taken from his own words. Photos 1 and 2
   // are the baptism (both in front of the same painting, in white), photo 3 is the ice
