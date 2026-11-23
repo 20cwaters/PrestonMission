@@ -10,6 +10,30 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-10-19-1", src: "photos/album-2026-10-19-1.jpg", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+  { id: "album-2026-10-19-2", src: "photos/album-2026-10-19-2.jpg", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+  { id: "album-2026-10-19-3", src: "photos/album-2026-10-19-3.jpg", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+  { id: "album-2026-10-19-4", src: "photos/album-2026-10-19-4.jpg", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+  { id: "album-2026-10-19-5", src: "photos/album-2026-10-19-5.jpg", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+  { id: "album-2026-10-19-6", src: "photos/album-2026-10-19-6.jpg", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+  { id: "album-2026-10-19-video-1", video: "82b5f931f65e75a10dea25b7b528c592", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/82b5f931f65e75a10dea25b7b528c592/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/82b5f931f65e75a10dea25b7b528c592/iframe", date: "2026-10-19",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-10-19-scary-nanay" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-10-12-1", src: "photos/album-2026-10-12-1.jpg", date: "2026-10-12",
     caption: "", location: "Santa Ana",
     letterId: "2026-10-12-rain-rain-go-away" },
