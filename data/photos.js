@@ -10,6 +10,14 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-08-26-1", src: "photos/album-2026-08-26-1.jpg", date: "2026-08-26",
+    caption: "", location: "Provo MTC",
+    letterId: "" },
+  { id: "album-2026-08-26-2", src: "photos/album-2026-08-26-2.jpg", date: "2026-08-26",
+    caption: "", location: "Provo MTC",
+    letterId: "" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-08-18-1", src: "photos/album-2026-08-18-1.jpg", date: "2026-08-18",
     caption: "", location: "Provo MTC",
     letterId: "2026-08-18-the-great-mtc-plague" },
