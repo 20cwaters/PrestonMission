@@ -10,6 +10,20 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-11-16-video-4", video: "9012a13283d8e5d1641c2631b7b9d602", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/9012a13283d8e5d1641c2631b7b9d602/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/9012a13283d8e5d1641c2631b7b9d602/iframe", date: "2026-11-16",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
+  { id: "album-2026-11-16-video-5", video: "0350691a591074be441202247febb248", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/0350691a591074be441202247febb248/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/0350691a591074be441202247febb248/iframe", date: "2026-11-16",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
+  { id: "album-2026-11-16-video-6", video: "e9af78a1dc525b1ee3555a2f71a1a98e", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/e9af78a1dc525b1ee3555a2f71a1a98e/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/e9af78a1dc525b1ee3555a2f71a1a98e/iframe", date: "2026-11-16",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-11-16-1", src: "photos/album-2026-11-16-1.jpg", date: "2026-11-16",
     caption: "", location: "Santa Ana",
     letterId: "2026-11-16-malunngay-pandesal-with-cheese" },
