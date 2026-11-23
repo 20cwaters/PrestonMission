@@ -10,6 +10,20 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-11-01-1", src: "photos/album-2026-11-01-1.jpg", date: "2026-11-01",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-01-sakit-and-transfers" },
+  { id: "album-2026-11-01-2", src: "photos/album-2026-11-01-2.jpg", date: "2026-11-01",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-01-sakit-and-transfers" },
+  { id: "album-2026-11-01-3", src: "photos/album-2026-11-01-3.jpg", date: "2026-11-01",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-01-sakit-and-transfers" },
+  { id: "album-2026-11-01-4", src: "photos/album-2026-11-01-4.jpg", date: "2026-11-01",
+    caption: "", location: "Santa Ana",
+    letterId: "2026-11-01-sakit-and-transfers" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-10-26-13", src: "photos/album-2026-10-26-13.jpg", date: "2026-10-26",
     caption: "", location: "Santa Ana",
     letterId: "2026-10-26-lightning-rabies-and-rats" },
