@@ -6,6 +6,30 @@
 window.LETTERS = [
 
   {
+    id: "2026-11-23-bagyo",
+    title: "Bagyo⛈️",
+    date: "2026-11-23",
+    location: "Santa Ana",
+    week: 16,
+    albumUrl: "https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA",
+    body: [
+      { type: "p", text: "Kamusta po! Its been a challenging week here in the Philies. Started off the week with lots of rain. Then there was a lot of wind. And now its just rainy and windy all day everyday, but that's okay because the work never stops. I also accidently stepped in this mystery goop weather drain puddle, yuuuukk. It smelt so bad, it was straight poison. It actually started to burn my foot and I had to take this pill so I wouldn't get this really deadly disease. But yeah my foot is all good now, but my sock? Oh yeah it didnt make it sadly. It was probably the worst smelling thing in the world to exist." },
+      { type: "p", text: "So many miracles this week! Two of our friends that we dropped, because they were low-key avoiding us, all of a sudden came up to us and said, \"i want to come closer to Christ, can you help me?\" and we were like well you found the right people yes of course, and now they both got baptismal dates and they're really progressing well. We also had another baptism this week! We got to use the font for the first time and it was a lot faster and easier than the ocean so that was good. It was also a huge blessing that we have a font now, because the weather was really stormy, so the ocean would've been really dangerous." },
+      { type: "p", text: "I went on exchanges with Elder Diduro again and I ate a orange booger thingy in weird black sea ball. I dont know exactly what it was but it taste like staright salt and fish. It wasnt very tasty. Theres a video on the album if you wanna check it out: https://photos.app.goo.gl/f1DwQm3z7ssG8TBcA Then to help get rid of the taste we got some ice cream haha." },
+      { type: "p", text: "Thats all for this week! Ingat po kayong lahat!" },
+      { type: "scripture", ref: "Moroni 10:4–5", text: "4 And when ye shall receive these things, I would exhort you that ye would ask God, the Eternal Father, in the name of Christ, if these things are not true; and if ye shall ask with a sincere heart, with real intent, having faith in Christ, he will manifest the truth of it unto you, by the power of the Holy Ghost.\n\n5 And by the power of the Holy Ghost ye may know the truth of all things." }
+    ],
+    spiritualThought: {
+      title: "Ye may know the truth of all things",
+      intro: "",
+      scriptureRef: "Moroni 10:4–5",
+      scripture: "And when ye shall receive these things, I would exhort you that ye would ask God, the Eternal Father, in the name of Christ, if these things are not true; and if ye shall ask with a sincere heart, with real intent, having faith in Christ, he will manifest the truth of it unto you, by the power of the Holy Ghost.\n\nAnd by the power of the Holy Ghost ye may know the truth of all things."
+    },
+    tagalog: [],
+    photos: ["2026-11-23-1", "2026-11-23-2", "2026-11-23-3"]
+  },
+
+  {
     id: "2026-11-16-malunngay-pandesal-with-cheese",
     title: "Malunngay...PANDESAL! WITH CHEESE! Mainit pa!",
     date: "2026-11-16",

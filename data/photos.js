@@ -9,6 +9,22 @@
 
 window.PHOTOS = [
 
+  // ---- Bagyo⛈️ (Nov 23, 2026) ----
+  // No caption lines in this email; captions are taken from his own words. Photos 1 and 2
+  // are the baptism (both in front of the same painting, in white), photo 3 is the ice
+  // cream after the exchange. Matched by content, which is also attachment order.
+  { id: "2026-11-23-1", src: "photos/2026-11-23-1.jpg", date: "2026-11-23",
+    caption: "We also had another baptism this week!", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+
+  { id: "2026-11-23-2", src: "photos/2026-11-23-2.jpg", date: "2026-11-23",
+    caption: "We got to use the font for the first time", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+
+  { id: "2026-11-23-3", src: "photos/2026-11-23-3.jpg", date: "2026-11-23",
+    caption: "Then to help get rid of the taste we got some ice cream haha", location: "Santa Ana",
+    letterId: "2026-11-23-bagyo" },
+
   // ---- Malunngay...PANDESAL! WITH CHEESE! Mainit pa! (Nov 16, 2026) ----
   // No caption lines in this email. Photo 3 is captioned from his own words about the
   // pandesal carts; photos 1 and 2 aren't clearly described in the letter, so their
