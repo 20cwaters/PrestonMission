@@ -10,6 +10,12 @@
 window.PHOTOS = [
 
   // ---- From his Google Photos album (found 2026-11-23) ----
+  { id: "album-2026-09-14-video-7", video: "6bccd5367b320d47ee55183819ac859f", src: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/6bccd5367b320d47ee55183819ac859f/thumbnails/thumbnail.jpg?time=1s&height=720",
+    embed: "https://customer-n5ytimoizyk50lvp.cloudflarestream.com/6bccd5367b320d47ee55183819ac859f/iframe", date: "2026-09-14",
+    caption: "", location: "Tuguegarao",
+    letterId: "2026-09-14-ipis-ipis-ipis-first-week-sa-field" },
+
+  // ---- From his Google Photos album (found 2026-11-23) ----
   { id: "album-2026-09-14-13", src: "photos/album-2026-09-14-13.jpg", date: "2026-09-14",
     caption: "", location: "Tuguegarao",
     letterId: "2026-09-14-ipis-ipis-ipis-first-week-sa-field" },
